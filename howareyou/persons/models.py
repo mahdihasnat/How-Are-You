@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils import timezone
-
 # Create your models here.
 
+# person attrs
 # -id : int
 # -name : string
 # -password : string
@@ -37,12 +37,4 @@ class Person(models.Model):
         default=Gender.FEMALE,
     )
 	# mobile_number
-	mobile_number = models.CharField(null=True)
-
-class Patient(Person):
-	height = models.DecimalField("height in cm",null=True,blank=True)
-	weight = models.DecimalField("weight in kg",null=True,blank=True)
-	location = models.CharField("location",max_length=200,null=True,blank=True)
-	info = models.CharField("info",max_length=200,null=True,blank=True)
-
-	
+	mobile_number = models.CharField(null=True,max_length=50)
