@@ -37,7 +37,7 @@ class PsychiatristExpertise(models.Model):
 
 class Psychiatrist(Person):
 	verified = models.BooleanField(default=False)
-	available_times = models.TextField(max_length=100)
+	available_times = models.TextField(max_length=100,null=True,blank=True)
 	awards = models.ManyToManyField(Award , through=PsychiatristAward)
 	degrees = models.ManyToManyField(Degree , through=PsychiatristDegree)
 	expertises = models.ManyToManyField(Expertise , through=PsychiatristExpertise)
