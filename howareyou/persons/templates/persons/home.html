@@ -56,7 +56,7 @@
             </div>
         </section>
         <div id="login-modal-id" class="modal">
-            <form class="modal-content animate" action="log_in/" method="post">
+            <form class="modal-content animate" action="{% url 'persons:login' %}" method="post">
                 {% csrf_token %}
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('login-modal-id').style.display='none'" class="close" title="Close Modal">&times;</span>
