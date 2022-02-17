@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'take_questionnaire',
+    'persons',
+    'patients',
+    'psychiatrists',
 ]
 
 MIDDLEWARE = [
