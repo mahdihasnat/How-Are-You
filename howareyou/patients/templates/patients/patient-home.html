@@ -45,11 +45,11 @@
             <hr style="margin-top: 2px; margin-bottom: 15px;">
             <ul class="test-ovrs" style="margin-bottom: 60px;">
                 <li>
-                    <span class="test-name" onclick="window.location='./test-questions.html'">DSM Questionnaire</span><br>
-                    <span class="test-desc" onclick="window.location='./test-questions.html'">Take a quick tour to the DSM Questionnaire to discover your current mental health condition.</span>
+                    <span class="test-name" onclick="location.href='{% url 'take_questionnaire:render_test' %}'">Self-Rated Level 1 Cross-Cutting Symptom Measure</span><br>
+                    <span class="test-desc" onclick="location.href='{% url 'take_questionnaire:render_test' %}'">Take a quick tour to the DSM Questionnaire to discover your current mental health condition.</span>
                 </li>
             </ul>
-            <span style="font-size: 1.6rem; font-weight: 500;">SPECIALIZED TESTS</span>
+            <span style="font-size: 1.6rem; font-weight: 500;">SPECIALIZED TESTS</span>s
             <hr style="margin-top: 2px; margin-bottom: 15px;">
             <ul class="test-ovrs">
                 <li>
