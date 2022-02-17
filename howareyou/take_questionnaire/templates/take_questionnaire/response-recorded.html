@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,24 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link href="{% static 'take_questionnaire/styles.css' %}" rel="stylesheet">
     <title>DSM Questionnaire</title>
 </head>
 <body>
-    <div class="container">
-        <section class="header">
-            <div class="logo">
-                <img src="./assets/logo.png" alt="How are you?" height="40%" width="40%">
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li>Trends and Statistics</li>
-                    <li>File Requests</li>
-                    <li>About Us</li>
-                </ul>
-                <span class="nav-right">
+<div class="container">
+    <section class="header">
+        <div class="logo">
+            <img src="./assets/logo.png" alt="How are you?" height="40%" width="40%">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li>Trends and Statistics</li>
+                <li>File Requests</li>
+                <li>About Us</li>
+            </ul>
+            <span class="nav-right">
                     <span><i class="fa fa-search" style="margin-right: 10px;"></i>
                         <span class="avatar">JD</span>
                     </span>
@@ -32,39 +33,39 @@
                         <i class="fa fa-envelope" style="margin-left: 5px;"></i>
                     </span>
                 </span>
-            </nav>
-        </section>
-        <section class="que-sec">
-            <div class="tron">DSM Questionnaire</div>
-            <div class="test-steps">
-                <ul class="test-steps-ul">
-                    <li class="test-step-n"><span class="test-step-circ"></span><span>Test</span><span>Questions</span></li>
-                    <li class="test-step-n"><span class="test-step-circ"></span><span>Demographic</span><span>Information</span></li>
-                    <li class="test-step-n"><span class="test-step-circ active-step"></span><span>Your</span><span>Results</span></li>
-                </ul>
-            </div>
-            <div class="questions-container" style="position: relative;">
-                <div class="thankyou">Thank You!</div>
-                <div class="init-response">
-                    Your initial score and responses are forwarded to the psychiatrists team.<br>
-                    You would be suggested any help or specialists if needed.<br>
-                    Please keep an eye on your Notifications tab for any new updates.
-                </div>
-                <a href="./patient-home.html" class="test-ques-submit-btn" style="text-decoration: none; bottom: -70px;"><i class="fa fa-angle-left"></i><span style="margin-left: 5px;">Back to Home</span></a>
-            </div>
-        </section>
-    </div>
-    <section class="footer">
-        <span><i class="fa fa-copyright"></i> Copyright <span class="year"></span> | How are you?</span>
-        <div>
-            <ul class="social-media">
-                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+        </nav>
+    </section>
+    <section class="que-sec">
+        <div class="tron">DSM Questionnaire</div>
+        <div class="test-steps">
+            <ul class="test-steps-ul">
+                <li class="test-step-n"><span class="test-step-circ"></span><span>Test</span><span>Questions</span></li>
+                <li class="test-step-n"><span class="test-step-circ"></span><span>Demographic</span><span>Information</span></li>
+                <li class="test-step-n"><span class="test-step-circ active-step"></span><span>Your</span><span>Results</span></li>
             </ul>
         </div>
+        <div class="questions-container" style="position: relative;">
+            <div class="thankyou">Thank You!</div>
+            <div class="init-response">
+                Your initial score and responses are forwarded to the psychiatrists team.<br>
+                You would be suggested any help or specialists if needed.<br>
+                Please keep an eye on your Notifications tab for any new updates.
+            </div>
+            <a href="./patient-home.html" class="test-ques-submit-btn" style="text-decoration: none; bottom: -70px;"><i class="fa fa-angle-left"></i><span style="margin-left: 5px;">Back to Home</span></a>
+        </div>
     </section>
-    <script src="./src/src.js"></script>
+</div>
+<section class="footer">
+    <span><i class="fa fa-copyright"></i> Copyright <span class="year"></span> | How are you?</span>
+    <div>
+        <ul class="social-media">
+            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+        </ul>
+    </div>
+</section>
+<script src="{% static 'take_questionnaire/src.js' %}"></script>
 </body>
 </html>
