@@ -18,14 +18,16 @@ def login(request):
     if request.method == 'POST':
         try:
             user = Patient.objects.get(username=request.POST.get('username'), password=request.POST.get('password'))
-            print("Patient logged in")
-            return render(request, 'patients/patient-home.html',{"name":user.username})
+            request.session['username'] = user.username
+            return redirect('patients:patient_home')
         except Patient.DoesNotExist:
             print("Patient not found")
             try:
                 user = Psychiatrist.objects.get(username=request.POST.get('username'), password=request.POST.get('password'))
-                return render(request, 'psychiatrists/psyc.html',{"name":user.username})
+                print("Psychiatrist logged in")
+                return redirect(request, 'psychiatrists/psyc.html',{"name":user.username})
             except Psychiatrist.DoesNotExist:
-                return render(request, 'persons/home.html',)
+                print("Psychiatrist not found")
+                return redirect(request, 'persons/home.html',)
     else:
         return redirect('/')

@@ -22,6 +22,8 @@ urlpatterns = [
     ############################
     path('take_questionnaire/', include('take_questionnaire.urls')),
     path('',include('persons.urls')),
+    path('',include('patients.urls')),
+    path('',include('psychiatrists.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

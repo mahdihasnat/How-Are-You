@@ -36,4 +36,4 @@ class Person(models.Model):
         default=Gender.FEMALE,
     )
 	# mobile_number
-	mobile_number = models.CharField(null=True,max_length=50)
+	mobile_number = models.CharField(null=True,max_length=50,blank=True)
