@@ -33,43 +33,27 @@
                 </span>
             </nav>
         </section>
-        <section class="body-sec">
-            <span style="font-size: 1.6rem; font-weight: 500;">GENERAL QUESTIONNAIRE</span>
-            <hr style="margin-top: 2px; margin-bottom: 15px;">
-            <ul class="test-ovrs" style="margin-bottom: 60px;">
-                <li>
-                    <span class="test-name" onclick="document.getElementById('login-modal-id').style.display='block'">DSM Questionnaire</span><br>
-                    <span class="test-desc" onclick="document.getElementById('login-modal-id').style.display='block'">Take a quick tour to the DSM Questionnaire to discover your current mental health condition.</span>
-                </li>
-            </ul>
-            <span style="font-size: 1.6rem; font-weight: 500;">SPECIALIZED TESTS</span>
-            <hr style="margin-top: 2px; margin-bottom: 15px;">
-            <ul class="test-ovrs">
-                <li>
-                    <span class="test-name" onclick="window.location='#'">Autism Tests</span><br>
-                    <span class="test-desc" onclick="window.location='#'">Are you experiencing the most common symptoms of autism? Find out using our Autism tests.</span>
-                </li>
-                <li>
-                    <span class="test-name" onclick="window.location='#'">Depression Tests</span><br>
-                    <span class="test-desc" onclick="window.location='#'">Are you depressed for any recent happenings aroung you? Take some moment to go through our Depression tests.</span>
-                </li>
-                <li>
-                    <span class="test-name" onclick="window.location='#'">OCD Tests</span><br>
-                    <span class="test-desc" onclick="window.location='#'">Suffering from obsessive thoughts of compulsive behavior? Take a tour to our OCD tests.</span>
-                </li>
-                <li>
-                    <span class="test-name" onclick="window.location='#'">Orthorexia Tests</span><br>
-                    <span class="test-desc" onclick="window.location='#'">Having eating disorders in a healthy way? Find out using our Orthorexia tests.</span>
-                </li>
-                <li>
-                    <span class="test-name" onclick="window.location='#'">PTSD Tests</span><br>
-                    <span class="test-desc" onclick="window.location='#'">Any horrible course of events that are still terrifying you? Find out through our PTSD tests.</span>
-                </li>
-                <li>
-                    <span class="test-name" onclick="window.location='#'">Stress Tests</span><br>
-                    <span class="test-desc" onclick="window.location='#'">Too much stressed? Take a tour to our Stress diagnosis process.</span>
-                </li>
-            </ul>
+        <section class="body-sec" style="margin-top: 70px;">
+            <div class="container">
+                <span>Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</span><br><br>
+                <ul style="margin-left: 50px;">
+                    <li>a serious accident or fire</li>
+                    <li>a natural calamity</li>
+                    <li>a physical or sexual assault or abuse</li>
+                    <li>a war</li>
+                    <li>seeing someone be killed or seriously injured</li>
+                    <li>having a loved one die through homicide or suicide</li>
+                </ul>
+                <br><br>
+                Have you experienced this kind of events before?<br><br>
+                <b>If YES, <u><span class="take-a-tour" onclick="document.getElementById('login-modal-id').style.display='block'">take a tour to our mental health tests.</span></u></b>
+                <hr style="margin-top: 100px; margin-bottom: 10px;">
+                <b>Source:</b><br><br>
+                PC-PTSSD is in Public-Domain and is available at <br>
+                <a href="https://www.ptsd.va.gov/professional/assessment/screens/pc-ptsd.asp">https://www.ptsd.va.gov/professional/assessment/screens/pc-ptsd.asp</a><br><br>
+                DSM-5 Manual by The American Psychiatrist Association is available at <br>
+                <a href="https://www.psychiatry.org/psychiatrists/practice/dsm">https://www.psychiatry.org/psychiatrists/practice/dsm</a>
+            </div>
         </section>
         <div id="login-modal-id" class="modal">
             <form class="modal-content animate" action="./patient-home.html">

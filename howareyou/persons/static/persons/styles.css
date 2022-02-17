@@ -107,6 +107,10 @@
   .test-desc:hover {
     cursor: pointer;
   }
+  .take-a-tour:hover {
+    cursor: pointer;
+    color: #2b9dfa;
+  }
   .footer {
     /* position: absolute; */
     /* bottom: 0px; */
@@ -116,7 +120,7 @@
     justify-content: space-between;
     min-height: 20vh;
     /* min-width: 100vw; */
-    background-color: gray;
+    background-color: #f89941;
     padding-left: 7vw;
     padding-right: 7vw;
     margin-top: 100px;
@@ -136,7 +140,7 @@
   .avatar {
     color: white;
     font-size: 1.05rem;
-    background-color: rgb(37, 58, 56);
+    background-color: rgb(221, 131, 131);
     border-radius: 100px;
     padding: 12px;
     margin-bottom: 10;
@@ -148,7 +152,7 @@
     border-radius: 25px 0 25px 25px;
     margin-top: 15px;
     color: white;
-    background-color: gray;
+    background-color: #f89941;
   }
   .notifi-box:hover {
     cursor: pointer;
