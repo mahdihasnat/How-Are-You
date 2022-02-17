@@ -23,11 +23,10 @@ def login(request):
                 request.session['username'] = user.username
                 return redirect('psychiatrists:psychiatrist_home')
             except Psychiatrist.DoesNotExist:
-                print("Psychiatrist not found")
-                return redirect('persons:home')
+                return redirect('persons:index')
     else:
-        return redirect('/')
+        return redirect('persons:index')
 
 def logout(request):
     del request.session['username']
-    return redirect('/')
+    return redirect('persons:index')
