@@ -78,6 +78,9 @@
     color: white;
     background-color: #f89941;
   }
+  .rad-box:hover {
+  	cursor: pointer;
+  }
   .body-sec {
     margin-top: 7vh;
     margin-left: 4vw;
