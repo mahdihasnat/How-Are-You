@@ -1,9 +1,12 @@
+from urllib import response
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy
+from persons.models import Person
 
 # Create your models here.
 from psychiatrists.models import Psychiatrist
+from patients.models import Patient
 
 ID_LENGTH = 15
 FIELD_LENGTH = 20
@@ -98,3 +101,16 @@ class TestQuestion(models.Model):
         default=Status.PENDING_APPROVAL
     )
 
+class TestResult(models.Model):
+    test = models.ForeignKey(Test, on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL , null=True,default=None)
+    answers = models.ManyToManyField(Question,through='Answer')
+    submission_time = models.DateTimeField(default=timezone.now)
+    comment = models.TextField()
+
+class Answer(models.Model):
+    testresult = models.ForeignKey(TestResult, on_delete=models.CASCADE)
+    qestion = models.ForeignKey(Question, on_delete=models.CASCADE)
+    response = models.CharField(max_length=FIELD_LENGTH, null=False, blank=False, default=UNSPECIFIED)
+    score = models.IntegerField(default=0)
