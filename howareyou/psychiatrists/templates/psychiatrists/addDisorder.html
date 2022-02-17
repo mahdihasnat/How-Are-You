@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/6.0.0/css/font-awesome.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
@@ -27,8 +30,7 @@
                     <li>About Us</li>
                 </ul>
                 <span class="nav-right">
-                    <span>
-                        <i class="fa fa-search" style="margin-right: 10px;"></i> 
+                    <span><i class="fa fa-search" style="margin-right: 10px;"></i>
                         <span class="avatar">JD</span>
                     </span>
                     <span class="notifi-box">
@@ -38,56 +40,45 @@
                 </span>
             </nav>
         </section>
-        <section class="body-sec">
-            <ul class="test-ovrs">
-                <li>
-                    <span class="test-name">Patient Scores And Responses</span><br>
-                    <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
-                </li>
-            </ul>
-            <table class="content-table">
-                <thead>
-                    <tr>
-                    <th>Patient Name</th>
-                    <th>System Score</th>
-                    <th>Response</th>
-                    <th>Suggest Psychiatrists</th>
-                    <th>Disorder</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>Audrey McKinney</td>
-                    <td>PSTD Positive</td>
-                    <td> <span class="table-elem">Show Response</span> </td>
-                    <td> <span class="table-elem">Suggest</span> </td>
-                    <td> <span class="table-elem">Add</span> </td>
-                    </tr>
-                    <tr>
-                    <td>Stella Warren</td>
-                    <td>PSTD Negative</td>
-                    <td> <span class="table-elem">Show Response</span> </td>
-                    <td> <span class="table-elem">Suggest</span> </td>
-                    <td> <span class="table-elem">Add</span> </td>
-                    </tr>
-                    <tr>
-                    <td>Jon Doe</td>
-                    <td>PSTD Positive</td>
-                    <td> <span class="table-elem">Show Response</span> </td>
-                    <td> <span class="table-elem">Suggest</span> </td>
-                    <td> <span class="table-elem">Add</span> </td>
-                    </tr>
-                    <tr>
-                    <td>Brian Smith</td>
-                    <td>PSTD Negative</td>
-                    <td> <span class="table-elem">Show Response</span> </td>
-                    <td> <span class="table-elem">Suggest</span> </td>
-                    <td> <span class="table-elem">Add</span> </td>
-                    </tr>
-                </tbody>
-            </table>
-            
-        </section>
+        <div class="body-sec">
+            <div>
+                <span style="display: inline-block;">Suggest Disorder(s) For Stella Warren</span>
+                <span style="display: inline-block; margin-left: 40%;"><i class="fa fa-search"></i> </span>
+            </div>
+            <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
+
+
+
+            <form>
+                
+    
+                <div style="margin-top: 2ex; margin-left: 2ex;">
+                    <label class="ckbox-container">PTSD
+                        <input type="checkbox" name="type1_1">
+                        <span class="ckbox-checkmark"></span>
+                    </label>
+                    <label class="ckbox-container" name="type1_2">Depression
+                        <input type="checkbox">
+                        <span class="ckbox-checkmark"></span>
+                    </label>
+   
+                    <label class="ckbox-container">Orthorexia
+                        <input type="checkbox" name="type2_1">
+                        <span class="ckbox-checkmark"></span>
+                    </label>
+                    <label class="ckbox-container">OCD
+                        <input type="checkbox" name="type2_2">
+                        <span class="ckbox-checkmark"></span>
+                    </label>
+                </div>
+    
+    
+                <div>
+                    <span><input type="submit" value="Send" class="send-btn"></span>
+                </div>
+            </form>
+
+        </div>
     </div>
     <section class="footer">
         <span><i class="fa fa-copyright"></i> Copyright <span class="year"></span> | How are you?</span>
