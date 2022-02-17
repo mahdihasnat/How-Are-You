@@ -139,7 +139,7 @@
     padding: 8px;
     text-align: center;
     margin-top: 8ex;
-    margin-left: 70%;
+    margin-left: 68%;
     border-radius: 0 25px 25px 25px;
     margin-top: 5px;
     color: white;
@@ -217,4 +217,14 @@
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+  }
+
+  .report-btn{
+    display: inline-block; 
+    padding: 8px;
+    text-align: center; 
+    margin-top: 5ex;
+    border-radius: 10px 10px 10px 10px; 
+    color:white; 
+    background-color: gray;
   }
