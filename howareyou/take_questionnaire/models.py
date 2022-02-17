@@ -38,7 +38,7 @@ class Question(models.Model):
     # added by me
     changed_at = models.DateTimeField(default=timezone.now)
 
-    question_text = models.CharField(max_length=TEXT_FIELD)
+    question_text = models.CharField(max_length=TEXT_FIELD, null=False, blank=False, default=UNSPECIFIED)
 
     class QuestionStatus(models.TextChoices):
         pass
