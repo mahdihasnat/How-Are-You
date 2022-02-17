@@ -86,7 +86,7 @@ class Test(models.Model):
     name = models.CharField("Name of the test", max_length=FIELD_LENGTH, null=False, blank=False)
     created_at = models.DateTimeField(default=timezone.now)
     is_approved = models.CharField(max_length=CHOICE_LENGTH, choices=Status.choices, default=Status.PENDING_APPROVAL)
-
+    questions = models.ManyToManyField(Question,through='TestQuestion')
 
 class TestQuestion(models.Model):
     test_id = models.ForeignKey(Test, on_delete=models.CASCADE)
@@ -97,3 +97,4 @@ class TestQuestion(models.Model):
         choices=Status.choices,
         default=Status.PENDING_APPROVAL
     )
+
