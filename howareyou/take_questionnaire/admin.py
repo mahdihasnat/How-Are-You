@@ -8,5 +8,13 @@ from .models import Rule
 admin.site.register(Question)
 admin.site.register(Option)
 admin.site.register(Rule)
-admin.site.register(Test)
-admin.site.register(TestQuestion)
+
+
+class TestQuestionInline(admin.TabularInline):
+	model = TestQuestion;
+	extra = 1
+
+class TestAdmin(admin.ModelAdmin):
+	inlines = [TestQuestionInline,]
+
+admin.site.register(Test,TestAdmin)
