@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <section class="header">
+            <div class="logo">
+                <img src="./assets/logo.png" alt="How are you?" height="40%" width="40%">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li>Trends and Statistics</li>
+                    <li>About Us</li>
+                </ul>
+                <span class="nav-right">
+                    <span><i class="fa fa-search" style="margin-right: 10px;"></i><span class="login-btn" onclick="document.getElementById('login-modal-id').style.display='block'">LOGIN</span></span>
+                    <span class="rad-box">TAKE A MENTAL HEALTH TEST</span>
+                </span>
+            </nav>
+        </section>
+        <section class="body-sec">
+            <span style="font-size: 1.6rem; font-weight: 500;">GENERAL QUESTIONNAIRE</span>
+            <hr style="margin-top: 2px; margin-bottom: 15px;">
+            <ul class="test-ovrs" style="margin-bottom: 60px;">
+                <li>
+                    <span class="test-name" onclick="document.getElementById('login-modal-id').style.display='block'">DSM Questionnaire</span><br>
+                    <span class="test-desc" onclick="document.getElementById('login-modal-id').style.display='block'">Take a quick tour to the DSM Questionnaire to discover your current mental health condition.</span>
+                </li>
+            </ul>
+            <span style="font-size: 1.6rem; font-weight: 500;">SPECIALIZED TESTS</span>
+            <hr style="margin-top: 2px; margin-bottom: 15px;">
+            <ul class="test-ovrs">
+                <li>
+                    <span class="test-name" onclick="window.location='#'">Autism Tests</span><br>
+                    <span class="test-desc" onclick="window.location='#'">Are you experiencing the most common symptoms of autism? Find out using our Autism tests.</span>
+                </li>
+                <li>
+                    <span class="test-name" onclick="window.location='#'">Depression Tests</span><br>
+                    <span class="test-desc" onclick="window.location='#'">Are you depressed for any recent happenings aroung you? Take some moment to go through our Depression tests.</span>
+                </li>
+                <li>
+                    <span class="test-name" onclick="window.location='#'">OCD Tests</span><br>
+                    <span class="test-desc" onclick="window.location='#'">Suffering from obsessive thoughts of compulsive behavior? Take a tour to our OCD tests.</span>
+                </li>
+                <li>
+                    <span class="test-name" onclick="window.location='#'">Orthorexia Tests</span><br>
+                    <span class="test-desc" onclick="window.location='#'">Having eating disorders in a healthy way? Find out using our Orthorexia tests.</span>
+                </li>
+                <li>
+                    <span class="test-name" onclick="window.location='#'">PTSD Tests</span><br>
+                    <span class="test-desc" onclick="window.location='#'">Any horrible course of events that are still terrifying you? Find out through our PTSD tests.</span>
+                </li>
+                <li>
+                    <span class="test-name" onclick="window.location='#'">Stress Tests</span><br>
+                    <span class="test-desc" onclick="window.location='#'">Too much stressed? Take a tour to our Stress diagnosis process.</span>
+                </li>
+            </ul>
+        </section>
+        <div id="login-modal-id" class="modal">
+            <form class="modal-content animate" action="./patient-home.html">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('login-modal-id').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
+      
+                <div class="login-container">
+                    <div style="display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: bold;">LOGIN</div>
+                    <label><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname">
+      
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw">
+      
+                    <input type="submit" class="login-btn" value="Login" style="background: none; border: none; background-color: #ddd; margin-top: 8px; padding: 11px; border-radius: 10px; width: 100%;">
+                </div>
+      
+                <div class="login-container" style="background-color:#f1f1f1">
+                    <div style="display: flex; align-items: center; justify-content: center;"><span>No account? <a href="#"> Create one</a></span></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <section class="footer">
+        <span><i class="fa fa-copyright"></i> Copyright <span class="year"></span> | How are you?</span>
+        <div>
+            <ul class="social-media">
+                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+            </ul>
+        </div>
+    </section>
+    <script src="./src/src.js"></script>
+</body>
+</html>
