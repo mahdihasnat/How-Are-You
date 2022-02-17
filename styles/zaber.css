@@ -1,0 +1,220 @@
+ .circle {
+    /* width: 7ex;
+    height: 7ex; */
+    /* line-height: 5ex; */
+    padding: 2%;
+    border-radius: 50%;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    background: #000;
+    /* margin-left: -5ex;  */
+    margin-bottom: 10px;
+  }
+  .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    width: 75%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .content-table thead tr {
+    background-color: rgb(36, 40, 43);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .content-table th,
+  .content-table td {
+    padding: 12px 15px;
+  }
+  
+  .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  
+  
+  .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid black;
+  }
+  
+  .content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  }
+
+  .table-elem {
+    padding: 7px; 
+    padding-left: 10px;
+    padding-right: 10px; 
+    border-radius: 5px; 
+    background-color: gray; 
+    color: white;
+  }
+  .table-elem:hover{
+      cursor: pointer;
+  }
+
+  td, th
+  {
+    text-align: center; 
+    vertical-align: middle;
+  }
+
+
+  .ckbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .ckbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .ckbox-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .ckbox-container:hover input ~ .ckbox-checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .ckbox-container input:checked ~ .ckbox-checkmark {
+    background-color: #1e2627;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .ckbox-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .ckbox-container input:checked ~ .ckbox-checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .ckbox-container .ckbox-checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .send-btn{
+    width: 7%;
+    padding: 8px;
+    text-align: center;
+    margin-top: 8ex;
+    margin-left: 70%;
+    border-radius: 0 25px 25px 25px;
+    margin-top: 5px;
+    color: white;
+    background-color: grey;
+    border-color: gray;
+  }
+  .send-btn:hover{
+    cursor: pointer;
+  }
+
+
+
+  .ckbox-container-show {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+
+  .ckbox-container-show input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .ckbox-checkmark-show {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  /* .ckbox-container:hover input ~ .ckbox-checkmark {
+    background-color: #ccc;
+  } */
+  
+  /* When the checkbox is checked, add a blue background */
+  .ckbox-container-show input:checked ~ .ckbox-checkmark-show {
+    background-color: #1e2627;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .ckbox-checkmark-show:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .ckbox-container-show input:checked ~ .ckbox-checkmark-show:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .ckbox-container-show .ckbox-checkmark-show:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
