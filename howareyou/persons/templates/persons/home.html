@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +10,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="{% static 'persons/styles.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'community/create_community.css' %}">  -->
     <title>Home</title>
+
 </head>
 <body>
     <div class="container">
         <section class="header">
             <div class="logo">
-                <img src="./assets/logo.png" alt="How are you?" height="40%" width="40%">
+
+                <img src="{{MEDIA_URL}}logo.png" alt="How are you?" height="40%" width="40%">
             </div>
             <nav>
                 <ul class="nav-links">
@@ -100,6 +105,6 @@
             </ul>
         </div>
     </section>
-    <script src="./src/src.js"></script>
+    <script src="{% static 'persons/src.js' %}"></script>
 </body>
 </html>
