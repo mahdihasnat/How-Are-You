@@ -3,7 +3,9 @@
 from django.urls import path
 
 from . import views
-
+app_name = 'take_questionnaire'
 urlpatterns = [
-    path('', views.take_questionnaire, name='take_questionnaire'),
+    path('', views.render_test, name='render_test'),
+    path('submit/', views.render_submit, name='render_submit'),
+
 ]

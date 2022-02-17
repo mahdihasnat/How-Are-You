@@ -20,7 +20,7 @@
         <section class="header">
             <div class="logo">
 
-                <img src="{{MEDIA_URL}}logo.png" alt="How are you?" height="40%" width="40%">
+                <img src="{% static 'persons/logo.png' %}" alt="How are you?" height="40%" width="40%">
             </div>
             <nav>
                 <ul class="nav-links">
@@ -56,7 +56,8 @@
             </div>
         </section>
         <div id="login-modal-id" class="modal">
-            <form class="modal-content animate" action="./patient-home.html">
+            <form class="modal-content animate" action="log_in/" method="post">
+                {% csrf_token %}
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('login-modal-id').style.display='none'" class="close" title="Close Modal">&times;</span>
                 </div>
@@ -64,10 +65,10 @@
                 <div class="login-container">
                     <div style="display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: bold;">LOGIN</div>
                     <label><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname">
+                    <input type="text" placeholder="Enter Username" name="username">
       
                     <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw">
+                    <input type="password" placeholder="Enter Password" name="password">
       
                     <input type="submit" class="login-btn" value="Login" style="background: none; border: none; background-color: #ddd; margin-top: 8px; padding: 11px; border-radius: 10px; width: 100%;">
                 </div>

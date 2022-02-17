@@ -111,6 +111,6 @@ class TestResult(models.Model):
 
 class Answer(models.Model):
     testresult = models.ForeignKey(TestResult, on_delete=models.CASCADE)
-    qestion = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     response = models.CharField(max_length=FIELD_LENGTH, null=False, blank=False, default=UNSPECIFIED)
     score = models.IntegerField(default=0)

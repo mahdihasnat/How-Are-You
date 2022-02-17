@@ -20,6 +20,7 @@ class Gender(models.TextChoices):
 class Person(models.Model):
 	id = models.CharField("unique id to every person",
                           max_length=200, primary_key=True)
+	username = models.CharField(max_length=200,default="Unknown")
 	name = models.CharField(max_length=200, default="Unknown")
 	
 	password = models.CharField(max_length=50)
