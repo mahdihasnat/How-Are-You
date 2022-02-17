@@ -13,7 +13,12 @@ cd howareyou
 python manage.py runserver
 ```
 
-from howareyou directory
+# Run using run.sh
+
+```
+chmod +x run.sh
+./run.sh
+```
 
 # To-Do
 
