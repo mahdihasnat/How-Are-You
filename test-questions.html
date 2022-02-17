@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>DSM Questionnaire</title>
+</head>
+<body>
+    <div class="container">
+        <section class="header">
+            <div class="logo">
+                <img src="./assets/logo.png" alt="How are you?" height="40%" width="40%">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li>Trends and Statistics</li>
+                    <li>File Requests</li>
+                    <li>About Us</li>
+                </ul>
+                <span class="nav-right">
+                    <span><i class="fa fa-search" style="margin-right: 10px;"></i>
+                        <span class="avatar">JD</span>
+                    </span>
+                    <span class="notifi-box">
+                        Notifications
+                        <i class="fa fa-envelope" style="margin-left: 5px;"></i>
+                    </span>
+                </span>
+            </nav>
+        </section>
+        <section class="que-sec">
+            <div class="tron">DSM Questionnaire</div>
+            <div class="test-steps">
+                <ul class="test-steps-ul">
+                    <li class="test-step-n"><span class="test-step-circ active-step"></span><span>Test</span><span>Questions</span></li>
+                    <li class="test-step-n"><span class="test-step-circ"></span><span>Demographic</span><span>Information</span></li>
+                    <li class="test-step-n"><span class="test-step-circ"></span><span>Your</span><span>Results</span></li>
+                </ul>
+            </div>
+            <div class="questions-container">
+                <form action="./demographic-info.html" style="position: relative;">
+                    <ul class="test-ovrs">
+                        <li>
+                            <span class="que-name">1. Have you ever felt worthless?</span><br>
+                            <div class="que-opts">
+                                <input type="radio" class="radio" name="q1"><span class="que-opt-n">Never</span><br>
+                                <input type="radio" class="radio" name="q1"><span class="que-opt-n">Rarely</span><br>
+                                <input type="radio" class="radio" name="q1"><span class="que-opt-n">Sometimes</span><br>
+                                <input type="radio" class="radio" name="q1"><span class="que-opt-n">Often</span><br>
+                                <input type="radio" class="radio" name="q1"><span class="que-opt-n">Always</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="que-name">2. Ever felt like you had nothing to look forward to?</span><br>
+                            <div class="que-opts">
+                                <input type="radio" class="radio" name="q2"><span class="que-opt-n">Never</span><br>
+                                <input type="radio" class="radio" name="q2"><span class="que-opt-n">Rarely</span><br>
+                                <input type="radio" class="radio" name="q2"><span class="que-opt-n">Sometimes</span><br>
+                                <input type="radio" class="radio" name="q2"><span class="que-opt-n">Often</span><br>
+                                <input type="radio" class="radio" name="q2"><span class="que-opt-n">Always</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="que-name">3. Ever felt like a failure?</span><br>
+                            <div class="que-opts">
+                                <input type="radio" class="radio" name="q3"><span class="que-opt-n">Never</span><br>
+                                <input type="radio" class="radio" name="q3"><span class="que-opt-n">Rarely</span><br>
+                                <input type="radio" class="radio" name="q3"><span class="que-opt-n">Sometimes</span><br>
+                                <input type="radio" class="radio" name="q3"><span class="que-opt-n">Often</span><br>
+                                <input type="radio" class="radio" name="q3"><span class="que-opt-n">Always</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <input type="submit" class="test-ques-submit-btn" value="NEXT">
+                </form>
+            </div>
+        </section>
+    </div>
+    <section class="footer">
+        <span><i class="fa fa-copyright"></i> Copyright <span class="year"></span> | How are you?</span>
+        <div>
+            <ul class="social-media">
+                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+            </ul>
+        </div>
+    </section>
+    <script src="./src/src.js"></script>
+</body>
+</html>
