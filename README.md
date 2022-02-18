@@ -22,7 +22,9 @@ chmod +x run.sh
 
 # Using Data pump
 
--first uncomment the part you want to add to database -put relevant datas
+-first uncomment the part you want to add to database
+
+-put relevant data
 
 ```
 python manage.py shell < data_pump.py
