@@ -20,6 +20,14 @@ chmod +x run.sh
 ./run.sh
 ```
 
+# Using Data pump
+
+-first uncomment the part you want to add to database -put relevant datas
+
+```
+python manage.py shell < data_pump.py
+```
+
 # To-Do
 
 - Test Inputs by moderator
