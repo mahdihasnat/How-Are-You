@@ -77,7 +77,7 @@ class Rule(models.Model):
     rubric_score = models.FloatField(default=0)
     _from = models.DateTimeField(default=timezone.now)
     # should end be the current time
-    _end = models.DateTimeField(default=timezone.now)
+    _end = models.DateTimeField(default=timezone.datetime.max)
 
 
 class Test(models.Model):
@@ -108,7 +108,7 @@ class TestResult(models.Model):
     verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL, null=True, default=None)
     answers = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
-    comment = models.TextField()
+    comment = models.TextField(default='')
 
 
 class Answer(models.Model):

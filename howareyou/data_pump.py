@@ -103,8 +103,6 @@ for i in range(QUESTION_COUNT):
             option_id=option,
             question_id=ques,
             rubric_score=weights[i][opt],
-
-            # _end=None,
         )
         rule.save()
 

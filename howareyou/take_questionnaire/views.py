@@ -1,24 +1,42 @@
 # Create your views here.
-from django.shortcuts import render,redirect
-from take_questionnaire.models import Question,Test
+from doctest import testfile
+from django.shortcuts import render,redirect,HttpResponseRedirect
+from take_questionnaire.models import Question,Test,TestResult,Answer,Rule
+from patients.models import Patient
 
 def render_test(request):
     
     context = {}
     test = Test.objects.get(name='General')
     context['test'] = test
-    context['questions'] = Question.objects.filter(test=test)
-    print(context)
-    print(test.questions.all())
     return render(request, 'take_questionnaire/test-questions.html',context)
 
-def render_submit(request):
-    #To DO --------------------------------------------
-    #Write Response to DB
-    #access using request.POST.get()
+def get_score(question,option):
+    rule = Rule.objects.get(question_id=question,option_id=option)
+    return rule.rubric_score
 
+def submit(request,test_id):
+    if request.method == 'POST':
+        print(request.POST)
+        test = Test.objects.get(id=test_id)
+        patient = Patient.objects.get(username=request.session['username'])
+        test_result = TestResult.objects.create(patient=patient,test=test)
+        for question in test.questions.all():
+            try:
+                response = request.POST[str(question.id)]
+            except:
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        for question in test.questions.all():
+            response = request.POST[str(question.id)]
+            answer = Answer.objects.create(testresult=test_result,question=question,response=response)
+            answer.score = get_score(question,response)
+            answer.save()
+        test_result.save()
+        return render(request, 'take_questionnaire/response-recorded.html')
+    else:
+        return redirect('take_questionnaire:render_test')
     
-    return render(request, 'take_questionnaire/response-recorded.html')
+    
 
 
 

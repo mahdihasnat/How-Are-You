@@ -6,6 +6,5 @@ from . import views
 app_name = 'take_questionnaire'
 urlpatterns = [
     path('', views.render_test, name='render_test'),
-    path('submit/', views.render_submit, name='render_submit'),
-
+    path('submit/<int:test_id>', views.submit, name='submit'),
 ]
