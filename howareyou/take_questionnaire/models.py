@@ -66,7 +66,7 @@ class Question(models.Model):
 
 class Option(models.Model):
     # not adding id
-    question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question_id = models.ForeignKey(Question, on_delete=models.CASCADE,parent_link=True)
     text = models.CharField(max_length=FIELD_LENGTH, null=False, blank=False, default=UNSPECIFIED)
 
 

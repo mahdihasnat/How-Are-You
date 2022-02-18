@@ -36,7 +36,7 @@
         </nav>
     </section>
     <section class="que-sec">
-        <div class="tron">{{name}}</div>
+        <div class="tron">{{test.name}}</div>
         <div class="test-steps">
             <ul class="test-steps-ul">
                 <li class="test-step-n"><span class="test-step-circ active-step"></span><span>Test</span><span>Questions</span></li>
@@ -48,15 +48,21 @@
             <form action="submit/" style="position: relative;". method="POST">
                 {% csrf_token %}
                 <ul class="test-ovrs">
-                {% for q in questions %}  
+                {% for q in test.questions.all %}  
                     <li>
-                        <span class="que-name">{{q}}</span><br>
+                        <span class="que-name">{{q.question_text}}</span><br>
                         <div class="que-opts">
-                            <input type="radio" class="radio" name="q1"><span class="que-opt-n">Not at all</span><br>
-                            <input type="radio" class="radio" name="q1"><span class="que-opt-n">Rare, less than a day or two</span><br>
+                            {% for o in q.option_set.all %}
+                                
+                            <input type="radio" class="radio" name="{{ o.id }}"><span class="que-opt-n">{{ o.text }}</span><br>
+                                
+                            {% endfor %}
+                            
+                            
+                            {% comment %} <input type="radio" class="radio" name="q1"><span class="que-opt-n">Rare, less than a day or two</span><br>
                             <input type="radio" class="radio" name="q1"><span class="que-opt-n">Several days</span><br>
                             <input type="radio" class="radio" name="q1"><span class="que-opt-n">More than hlaf the days</span><br>
-                            <input type="radio" class="radio" name="q1"><span class="que-opt-n">Nearly every day</span>
+                            <input type="radio" class="radio" name="q1"><span class="que-opt-n">Nearly every day</span> {% endcomment %}
                         </div>
                     </li>
                 {% endfor %}

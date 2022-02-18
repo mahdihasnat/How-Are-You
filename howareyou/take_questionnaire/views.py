@@ -3,13 +3,14 @@ from django.shortcuts import render,redirect
 from take_questionnaire.models import Question,Test
 
 def render_test(request):
+    
+    context = {}
     test = Test.objects.get(name='General')
-    questions = Question.objects.filter(test=test)
-    questions_text = []
-    for question in questions:
-        questions_text.append(question.question_text)
-    print(questions_text)
-    return render(request, 'take_questionnaire/test-questions.html', {'name' : 'Self-Rated Level 1 Cross-Cutting Symptom Measure', 'questions' : questions_text})
+    context['test'] = test
+    context['questions'] = Question.objects.filter(test=test)
+    print(context)
+    print(test.questions.all())
+    return render(request, 'take_questionnaire/test-questions.html',context)
 
 def render_submit(request):
     #To DO --------------------------------------------
