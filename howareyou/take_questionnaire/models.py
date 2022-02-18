@@ -1,12 +1,10 @@
-from urllib import response
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy
-from persons.models import Person
 
+from patients.models import Patient
 # Create your models here.
 from psychiatrists.models import Psychiatrist
-from patients.models import Patient
 
 ID_LENGTH = 15
 FIELD_LENGTH = 20
@@ -38,7 +36,7 @@ class Question(models.Model):
     # id = models.CharField("unique id to every question",
     #                       max_length=ID_LENGTH, primary_key=True)
 
-    added_by = models.ForeignKey(Psychiatrist, on_delete=models.DO_NOTHING)
+    added_by = models.ForeignKey(Psychiatrist, on_delete=models.CASCADE)
 
     # should we not have a string type question
     class QuestionType(models.TextChoices):
@@ -78,6 +76,7 @@ class Rule(models.Model):
     option_id = models.ForeignKey(Option, on_delete=models.CASCADE)
     rubric_score = models.FloatField(default=0)
     _from = models.DateTimeField(default=timezone.now)
+    # should end be the current time
     _end = models.DateTimeField(default=timezone.now)
 
 
@@ -89,7 +88,8 @@ class Test(models.Model):
     name = models.CharField("Name of the test", max_length=FIELD_LENGTH, null=False, blank=False)
     created_at = models.DateTimeField(default=timezone.now)
     is_approved = models.CharField(max_length=CHOICE_LENGTH, choices=Status.choices, default=Status.PENDING_APPROVAL)
-    questions = models.ManyToManyField(Question,through='TestQuestion')
+    questions = models.ManyToManyField(Question, through='TestQuestion')
+
 
 class TestQuestion(models.Model):
     test_id = models.ForeignKey(Test, on_delete=models.CASCADE)
@@ -101,13 +101,15 @@ class TestQuestion(models.Model):
         default=Status.PENDING_APPROVAL
     )
 
+
 class TestResult(models.Model):
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL , null=True,default=None)
-    answers = models.ManyToManyField(Question,through='Answer')
+    verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL, null=True, default=None)
+    answers = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
     comment = models.TextField()
+
 
 class Answer(models.Model):
     testresult = models.ForeignKey(TestResult, on_delete=models.CASCADE)
