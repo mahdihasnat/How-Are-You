@@ -22,12 +22,21 @@ chmod +x run.sh
 
 # Using Data pump
 
--first uncomment the part you want to add to database
+- first uncomment the part you want to add to database
 
--put relevant data
+- put relevant data
 
 ```
 python manage.py shell < data_pump.py
+```
+
+# Deleting the whole database ( If above fails)
+
+```
+python manage.py flush
+python manage.py shell < data_pump.py
+python manage.py createsuperuser --username admin --email "abc@abc.com"
+
 ```
 
 # To-Do
