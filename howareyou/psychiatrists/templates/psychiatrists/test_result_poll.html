@@ -47,6 +47,7 @@
             <table class="content-table">
                 <thead>
                     <tr>
+                    <th>Test Name</th>
                     <th>Patient Name</th>
                     <th>System Score</th>
                     <th>Response</th>
@@ -55,7 +56,19 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    {% for testresult in testresults%}
                     <tr>
+                        <td>{{testresult.test.name}}</td>
+                        <td>{{testresult.patient.name}}</td>
+                        <td>{{testresult.sum_score}}</td>
+                        <td> <span class="table-elem">Show Response</span> </td>
+                        <td> <span class="table-elem">Suggest</span> </td>
+                        <td> <span class="table-elem">Add</span> </td>
+                    </tr>
+                    {% endfor %}
+
+                    {% comment %} <tr>
                     <td>Audrey McKinney</td>
                     <td>PSTD Positive</td>
                     <td> <span class="table-elem">Show Response</span> </td>
@@ -82,7 +95,7 @@
                     <td> <span class="table-elem">Show Response</span> </td>
                     <td> <span class="table-elem">Suggest</span> </td>
                     <td> <span class="table-elem">Add</span> </td>
-                    </tr>
+                    </tr> {% endcomment %}
                 </tbody>
             </table>
             

@@ -106,9 +106,17 @@ class TestResult(models.Model):
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL, null=True, default=None)
-    answers = models.ManyToManyField(Question, through='Answer')
+    questions = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
     comment = models.TextField(default='')
+
+    def sum_score(self):
+        score = 0
+        # iterate over through filed of answers
+        for question in self.questions.all():
+            answer = Answer.objects.get(testresult=self, question=question)
+            score += answer.score
+        return score
 
 
 class Answer(models.Model):
