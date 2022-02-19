@@ -356,6 +356,15 @@
   .panel-ul li {
     padding: 10px;
   }
+
+
+  a, a:hover, a:focus, a:active{
+    text-decoration: none;
+    color: inherit;
+  }
+
+
+
   input[type=text],
     input[type=password] {
         width: 100%;
