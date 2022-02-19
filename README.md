@@ -33,6 +33,7 @@ python manage.py shell < data_pump.py
 # Deleting the whole database ( If above fails)
 
 ```
+cd howareyou
 python manage.py flush
 python manage.py shell < data_pump.py
 python manage.py createsuperuser --username admin --email "abc@abc.com"
