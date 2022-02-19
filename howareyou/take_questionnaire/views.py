@@ -5,10 +5,10 @@ from patients.models import Patient
 from take_questionnaire.models import Test, TestResult, Answer, Rule
 
 
-def render_test(request):
+def render_test(request,test_id):
     context = {}
     ''' should be changed to capture the right test'''
-    test = Test.objects.get(id=1)
+    test = Test.objects.get(id=test_id)
     context['test'] = test
     context['my'] = Patient.objects.get(username=request.session['username'])
     return render(request, 'take_questionnaire/test-questions.html', context)
