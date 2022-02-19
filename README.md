@@ -34,6 +34,8 @@ python manage.py shell < data_pump.py
 
 ```
 cd howareyou
+python manage.py makemigrations
+python manage.py migrate
 python manage.py flush
 python manage.py shell < data_pump.py
 python manage.py createsuperuser --username admin --email "abc@abc.com"
