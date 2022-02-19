@@ -76,7 +76,7 @@
     border-radius: 25px 0 25px 25px;
     margin-top: 5px;
     color: white;
-    background-color: #f89941;
+    background-color: grey;
   }
   .rad-box:hover {
   	cursor: pointer;
@@ -140,7 +140,7 @@
   .avatar {
     color: white;
     font-size: 1.05rem;
-    background-color: rgb(221, 131, 131);
+    background-color: rgb(37, 58, 56);
     border-radius: 100px;
     padding: 12px;
     margin-bottom: 10;
