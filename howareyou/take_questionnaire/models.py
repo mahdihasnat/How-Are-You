@@ -74,7 +74,7 @@ class Rule(models.Model):
     # id ignored
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
     option_id = models.ForeignKey(Option, on_delete=models.CASCADE)
-    rubric_score = models.FloatField(default=0)
+    rubric_score = models.IntegerField(default=0)
     _from = models.DateTimeField(default=timezone.now)
     # should end be the current time
     _end = models.DateTimeField(default=timezone.datetime.max)
