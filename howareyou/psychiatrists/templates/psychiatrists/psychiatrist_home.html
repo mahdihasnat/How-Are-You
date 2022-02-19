@@ -19,13 +19,14 @@
             {% include "logo.html" %}
             <nav>
                 <ul class="nav-links">
+                    <li>Home</li>
                     <li>Trends and Statistics</li>
                     <li>About Us</li>
                 </ul>
                 <span class="nav-right">
                     <span>
                         <i class="fa fa-search" style="margin-right: 10px;"></i> 
-                        <span class="avatar">{{my.name}}</span>
+                        <span class="avatar" onclick="document.getElementById('logout-modal-id').style.display='block'" style="cursor: pointer;">{{my.name}}</span>
                     </span>
                     <span class="notifi-box">
                         Notifications
@@ -50,6 +51,23 @@
                 </li>
             </ul>
         </section>
+
+        <div id="logout-modal-id" class="modal">
+            <form class="modal-content animate" action="" method="post">
+
+                {% csrf_token %}
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('logout-modal-id').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
+      
+                <div class="login-container">
+      
+                    <input type="submit" class="login-btn" value="Log Out" style="background: none; border: none; background-color: #ddd; margin-top: 15px; padding: 11px; border-radius: 10px; width: 100%;">
+                </div>
+    
+            </form>
+        </div>
+
     </div>
     <section class="footer">
         <span><i class="fa fa-copyright"></i> Copyright <span class="year"></span> | How are you?</span>

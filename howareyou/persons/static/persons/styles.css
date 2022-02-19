@@ -76,7 +76,7 @@
     border-radius: 25px 0 25px 25px;
     margin-top: 5px;
     color: white;
-    background-color: #f89941;
+    background-color: gray;
   }
   .rad-box:hover {
   	cursor: pointer;
@@ -120,7 +120,7 @@
     justify-content: space-between;
     min-height: 20vh;
     /* min-width: 100vw; */
-    background-color: #f89941;
+    background-color: gray;
     padding-left: 7vw;
     padding-right: 7vw;
     margin-top: 100px;
@@ -140,7 +140,7 @@
   .avatar {
     color: white;
     font-size: 1.05rem;
-    background-color: rgb(221, 131, 131);
+    background-color: rgb(37, 58, 56);
     border-radius: 100px;
     padding: 12px;
     margin-bottom: 10;
@@ -152,7 +152,7 @@
     border-radius: 25px 0 25px 25px;
     margin-top: 15px;
     color: white;
-    background-color: #f89941;
+    background-color: gray;
   }
   .notifi-box:hover {
     cursor: pointer;

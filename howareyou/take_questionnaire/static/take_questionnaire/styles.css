@@ -14,7 +14,7 @@
   }
   .logo {
     position: absolute;
-    overflow: hidden;
+    /*overflow: hidden;*/
   }
   nav {
     display: flex;
@@ -76,7 +76,7 @@
     border-radius: 25px 0 25px 25px;
     margin-top: 5px;
     color: white;
-    background-color: #f89941;
+    background-color: gray;
   }
   .rad-box:hover {
   	cursor: pointer;
@@ -219,7 +219,7 @@
   .test-step-n .active-step {
     background-color: rgb(70, 110, 163);
   }
-  .test-step-n:nth-child(1) .test-step-circ::after, .test-step-n:nth-child(2) .test-step-circ::after {
+  .test-step-n:nth-child(1) .test-step-circ::after {
     position: absolute;
     bottom: 40%;
     left: 105%;
@@ -256,7 +256,7 @@
     background: none;
     font-family: "Montserrat", sans-serif;
     font-size: 1.05rem;
-    background-color: #f89941;
+    background-color: gray;
     padding: 10px;
     padding-left: 23px;
     padding-right: 20px;

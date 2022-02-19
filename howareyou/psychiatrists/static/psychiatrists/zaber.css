@@ -228,3 +228,14 @@
     color:white; 
     background-color: gray;
   }
+
+  .logo-image{
+    border: 20px solid;  
+    border-color: red;
+    cursor: pointer;
+    z-index: 100;
+  }
+  .logo-image:hover{
+    border: 20px solid;  
+    border-color: green;
+  }

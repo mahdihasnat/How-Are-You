@@ -32,6 +32,7 @@ def submit(request,test_id):
             answer = Answer.objects.create(testresult=test_result,question=question,response=response)
             answer.score = get_score(question,response)
             answer.save()
+        print("Inside response-recorded")
         return render(request, 'take_questionnaire/response-recorded.html')
     else:
         return redirect('take_questionnaire:render_test')
