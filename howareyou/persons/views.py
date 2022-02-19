@@ -8,7 +8,20 @@ from psychiatrists.models import Psychiatrist
 # Create your views here.
 
 def index(request):
-    return render(request, 'persons/home.html')
+    if 'username' in request.session:
+        try:
+            patient = Patient.objects.get(username=request.session['username'])
+            return redirect('patients:patient_home')
+        except Patient.DoesNotExist:
+            try:
+                psychiatrist = Psychiatrist.objects.get(username=request.session['username'])
+                return redirect('psychiatrists:psychiatrist_home')
+            except Psychiatrist.DoesNotExist:
+                request.session['username'] = None
+                return redirect('persons:index')
+
+    else:
+        return render(request, 'persons/home.html')
 
 def login(request):
     if request.method == 'POST':

@@ -1,0 +1,6 @@
+{% load static %}
+<div class="logo" >
+	<span onclick="location.href='{% url 'persons:index' %}'">
+	<img src="{% static 'persons/logo.png' %}" alt="How are you?" height="40%" width="40%" >
+	</span>
+</div>

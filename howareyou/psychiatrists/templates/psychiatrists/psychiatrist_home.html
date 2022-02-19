@@ -16,9 +16,7 @@
 <body>
     <div class="container">
         <section class="header">
-            <div class="logo">
-                <img src="{% static 'persons/logo.png' %}" alt="How are you?" height="40%" width="40%">
-            </div>
+            {% include "logo.html" %}
             <nav>
                 <ul class="nav-links">
                     <li>Trends and Statistics</li>
@@ -39,7 +37,7 @@
         <section class="body-sec">
             <ul class="test-ovrs">
                 <li>
-                    <span class="test-name">Patient Scores And Responses</span><br>
+                    <span class="test-name" onclick="location.href='{% url 'psychiatrists:test_result_poll' %}'">Patient Scores And Responses</span><br>
                     <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
                 </li>
                 <li>
