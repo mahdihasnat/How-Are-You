@@ -19,7 +19,7 @@ PSYC_COUNT = 5
 psycs = ["Dr. Habibur Rahman", "Prof. Dr. Jhunu Shamsun Nahar", "Dr. Mekhala Sarkar", "Prof. Dr. M. A. Mohit Kamal",
          "Dr. Hasanul Banna"]
 PAT_COUNT = 3
-pats = ["nayem", "tanvir", "noman"]
+pats = ["Nayem", "Tanvir", "Noman"]
 
 assert PSYC_COUNT == len(psycs)
 assert PAT_COUNT == len(pats)
