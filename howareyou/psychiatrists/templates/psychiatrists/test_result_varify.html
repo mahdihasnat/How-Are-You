@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +12,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/zaber.css">
+    <link rel="stylesheet" href="{% static 'psychiatrists/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'psychiatrists/zaber.css' %}">
 
     <!-- <link rel="stylesheet" href="../../static/psychiatrists/styles.css">
     <link rel="stylesheet" href="../../static/psychiatrists/zaber.css"> -->
@@ -51,6 +52,12 @@
                     <span> Test Questions </span>
                     <hr style="border: 1px solid grey; margin-top: 1ex; width: 50%;">
                 </div>
+
+
+                {% for question in testresult.questions.all %}
+                    {{ question }}
+                {% endfor %}
+                {{answers}}
 
                 <div style="margin-top: 2ex; margin-left:2ex">
                     <span style="font-size: 120%;">1. Have you ever felt worthless?</span>
@@ -110,7 +117,6 @@
     
     
                 
-    
                 <div style="margin-top: 5ex;">
                     <span> Demographic Information </span>
                     <hr style="border: 1px solid grey; margin-top: 1ex; width: 50%;">
