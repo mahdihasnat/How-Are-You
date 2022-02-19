@@ -7,10 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/6.0.0/css/font-awesome.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{% static 'persons/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'persons/zaber.css' %}">
+    <link rel="stylesheet" href="{% static 'psychiatrists/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'psychiatrists/zaber.css' %}">
+
+    <!-- <link rel="stylesheet" href="../../static/psychiatrists/styles.css">
+    <link rel="stylesheet" href="../../static/psychiatrists/zaber.css"> -->
     <title>How Are You ?</title>
 </head>
 <body>
@@ -21,12 +27,11 @@
                 <ul class="nav-links">
                     <li><a href="{% url 'persons:index' %}" > Home </a></li>
                     <li>Trends and Statistics</li>
-                    <li>About Us</li>
+                    <li>File Requests</li>
                 </ul>
                 <span class="nav-right">
-                    <span>
-                        <i class="fa fa-search" style="margin-right: 10px;"></i> 
-                        <span class="avatar" onclick="document.getElementById('logout-modal-id').style.display='block'" style="cursor: pointer;">{{my.name}}</span>
+                    <span><i class="fa fa-search" style="margin-right: 10px;"></i>
+                        <span class="avatar" onclick="document.getElementById('logout-modal-id').style.display='block'" style="cursor: pointer;">{{ my.name }}</span>
                     </span>
                     <span class="notifi-box">
                         Notifications
@@ -34,23 +39,52 @@
                     </span>
                 </span>
             </nav>
-        </section>
-        <section class="body-sec">
-            <ul class="test-ovrs">
-                <li>
-                    <span class="test-name" onclick="location.href='{% url 'psychiatrists:test_result_poll' %}'">Patient Scores And Responses</span><br>
-                    <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
-                </li>
-                <li>
-                    <span class="test-name">Update Questionnaire</span><br>
-                    <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
-                </li>
-                <li>
-                    <span class="test-name">Request Files From Patients</span><br>
-                    <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
-                </li>
+            <ul class="notifi-modal">
+                <li onclick="window.location='{% url 'patients:verified_reports' %}'">VERIFIED REPORTS</li><hr>
+                <li>COUNSELING APPROVALS</li><hr>
+                <li>SUGGESTED MEDICATIONS</li><hr>
             </ul>
         </section>
+        <div class="body-sec">
+            <div>
+                <span style="display: inline-block;">System Report For {{ testresult.patient.name }}</span>
+            </div>
+            <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
+
+
+
+            
+                <div style="margin-top: 5ex;">
+                    <span> Test Questions </span>
+                    <hr style="border: 1px solid grey; margin-top: 1ex; width: 50%;">
+                </div>
+
+
+
+                {% for answer in answers %} 
+                <div style="margin-top: 2ex; margin-left:2ex">
+                    <span style="font-size: 120%;"> {{ forloop.counter }}.  {{ answer.question.question_text }} </span>
+                </div>
+                
+
+                <div style="margin-top: 1ex; margin-left: 5ex;">
+                    {% for option in answer.question.option_set.all %}
+
+                    <label class="ckbox-container-show">{{ option.text }}
+                        <input type="checkbox" disabled
+                            
+                            {% if option.id == answer.response %} 
+                                checked
+                            {% endif %}
+                        >
+                        <span class="ckbox-checkmark-show"></span>
+                    </label>
+                    {% endfor%}
+                </div>
+
+                {% endfor %}
+
+        </div>
 
         <div id="logout-modal-id" class="modal">
             <form class="modal-content animate" action="{% url 'persons:logout' %}" method="post">
@@ -61,7 +95,7 @@
                 </div>
       
                 <div class="login-container">
-      
+                    
                     <input type="submit" class="login-btn" value="Log Out" style="background: none; border: none; background-color: #ddd; margin-top: 15px; padding: 11px; border-radius: 10px; width: 100%;">
                 </div>
     
@@ -80,6 +114,7 @@
             </ul>
         </div>
     </section>
+	<script src="{% static 'patients/src.js' %}"></script>
     <script>
         document.querySelector(".year").innerHTML = new Date().getFullYear();
     </script>

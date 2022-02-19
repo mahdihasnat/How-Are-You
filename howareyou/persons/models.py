@@ -43,4 +43,5 @@ class Person(models.Model):
 		now = timezone.now()
 		delta =now - self.date_of_birth
 		
-		return str(delta.days // 365) + " year " + str(delta.days % 365 // 30) + "months"
+		return str(delta.days // 365) + " years" 
+		# + str(delta.days % 365 // 30) + "months"

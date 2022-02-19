@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 
+from django.utils import timezone
 from .models import Psychiatrist
 from take_questionnaire.models import Answer, TestResult,Dieases
 # Create your views here.
@@ -33,7 +34,7 @@ def test_result_save(request,test_result_id):
 			if psychiatrist.username in request.POST:
 				testresult.consultations.add(psychiatrist)
 		testresult.verifier = Psychiatrist.objects.get(username=request.session['username'])
-
+		testresult.verification_time=timezone.now()
 		for dieases in Dieases.objects.all():
 			if dieases.id in request.POST:
 				testresult.dieases.add(dieases)

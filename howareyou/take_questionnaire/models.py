@@ -99,7 +99,7 @@ class Test(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     is_approved = models.CharField(max_length=CHOICE_LENGTH, choices=Status.choices, default=Status.PENDING_APPROVAL)
     questions = models.ManyToManyField(Question, through='TestQuestion')
-
+    has_score = models.BooleanField(default=False)
 
 class TestQuestion(models.Model):
     test_id = models.ForeignKey(Test, on_delete=models.CASCADE)
@@ -118,7 +118,7 @@ class TestResult(models.Model):
     verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL, null=True, blank=True,default=None,related_name='verified_testresult')
     questions = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
-    verification_time = models.DateTimeField(default=timezone.datetime.max)
+    verification_time = models.DateTimeField(null=True, blank=True)
     comment = models.TextField(default='')
     dieaseses = models.ManyToManyField(Dieases)
     consultations = models.ManyToManyField(Psychiatrist)

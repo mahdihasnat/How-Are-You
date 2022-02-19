@@ -27,6 +27,7 @@ def submit(request,test_id):
             try:
                 response = request.POST[str(question.id)]
             except:
+                test_result.delete()
                 return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         for question in test.questions.all():
             response = int(request.POST[str(question.id)])

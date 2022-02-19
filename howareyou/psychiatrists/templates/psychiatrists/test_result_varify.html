@@ -25,7 +25,7 @@
             {% include "logo.html" %}  
             <nav>
                 <ul class="nav-links">
-                    <li>Home</li>
+                    <li><a href="{% url 'persons:index' %}" > Home </a></li>
                     <li>Trends and Statistics</li>
                     <li>About Us</li>
                 </ul>
@@ -42,7 +42,7 @@
         </section>
         <div class="body-sec">
             <div>
-                <span style="display: inline-block;">System Report For Stella Warren</span>
+                <span style="display: inline-block;">System Report For {{ testresult.patient.name }}</span>
             </div>
             <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
 
@@ -145,10 +145,10 @@
                 </div>
 
                 <div style="margin-top: 2ex; margin-left:2ex">
-                    <span style="font-size: 120%;">1. Age Range</span>
+                    <span style="font-size: 120%;">1. Age </span>
                 </div>
     
-                <div style="margin-top: 1ex; margin-left: 5ex; padding: 1.5ex; background-color: gray; width: 6%; border-radius: 10px 10px 10px 10px;">
+                <div style="margin-top: 1ex; margin-left: 5ex; padding: 1.5ex; background-color: white; width: 6%; border-radius: 10px 10px 10px 10px;">
                     <span> {{ testresult.patient.age }}</span>
                 </div>
 
@@ -159,15 +159,19 @@
     
                 <div style="margin-top: 1ex; margin-left: 5ex;">
                     <label class="ckbox-container-show">Male
-                        <input type="checkbox" disabled>
+                        <input type="checkbox" disabled
+                            {% if testresult.patient.gender == 'M' %}
+                                checked
+                            {% endif %}
+                        >
                         <span class="ckbox-checkmark-show"></span>
                     </label>
                     <label class="ckbox-container-show">Female
-                        <input type="checkbox" disabled checked>
-                        <span class="ckbox-checkmark-show"></span>
-                    </label>
-                    <label class="ckbox-container-show">Others
-                        <input type="checkbox" disabled>
+                        <input type="checkbox" disabled 
+                            {% if testresult.patient.gender == 'F' %}
+                                checked
+                            {% endif %}
+                        >
                         <span class="ckbox-checkmark-show"></span>
                     </label>
                 </div>
@@ -193,7 +197,9 @@
                     <hr style="border: 1px solid grey; margin-top: 1ex; width: 50%;">
                 </div>
                 <div style="margin-top: 2ex; margin-left:2ex">
-                    <span style="font-size: 120%;"> PTSD Positive </span>
+                    <span style="font-size: 120%;"> 
+                        {{ testresult.sum_score }}
+                    </span>
                 </div>
 
                 <br>

@@ -19,7 +19,7 @@
             {% include "logo.html" %}
             <nav>
                 <ul class="nav-links">
-                    <li>Home</li>
+                    <li><a href="{% url 'persons:index' %}" > Home </a></li>
                     <li>Trends and Statistics</li>
                     <li>File Requests</li>
                 </ul>
@@ -34,7 +34,7 @@
                 </span>
             </nav>
             <ul class="notifi-modal">
-                <li onclick="window.location='./verified-reports.html'">VERIFIED REPORTS</li><hr>
+                <li onclick="window.location='{% url 'patients:verified_reports' %}'">VERIFIED REPORTS</li><hr>
                 <li>COUNSELING APPROVALS</li><hr>
                 <li>SUGGESTED MEDICATIONS</li><hr>
             </ul>
@@ -46,10 +46,11 @@
             {% for testresult in testresults %}
                 
             <div class="review-card">
-                <span><b>{{ testresult.verifier.name }}</b> reviewed your report</span><br>
-                <span style="font-size: 0.8rem;">On 2022-01-31, 15:00</span><br><br>
+                <span><b>{{ testresult.verifier.name }}</b> reviewed your <a href="{% url 'patients:report' testresult.id %}" > report </a> </span><br>
+                <span style="font-size: 0.8rem;">On 
+                    {{ testresult.verification_time }}
+                </span><br><br>
                 <span>Initial query result: 
-                    
                     {% for dieases in testresult.dieaseses.all %}
                     <br>
                     <b>{{ dieases.name }}</b>
@@ -58,8 +59,10 @@
                 <button class="accordion">Suggested Psychiatrists</button>
                 <div class="panel">
                     <ul class="panel-ul">
-                        <li>Marvin Steward</li><hr>
-                        <li>Kevin De Bruyne</li>
+                        {% for psychiatrist in testresult.consultations.all %}
+                        <li>{{ psychiatrist.name }}</li>
+                        {% endfor %}
+
                     </ul>
                 </div>
             </div>
@@ -67,7 +70,7 @@
 
             {% endfor %}
 
-            <div class="review-card">
+            {% comment %} <div class="review-card">
                 <span><b>Arlene Steward</b> reviewed your report</span><br>
                 <span style="font-size: 0.8rem;">On 2022-01-31, 15:00</span><br><br>
                 <span>Initial query result: <b>PTSD Positive</b></span>
@@ -78,7 +81,7 @@
                         <li>Kevin De Bruyne</li>
                     </ul>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </section>
 
         <div id="logout-modal-id" class="modal">
