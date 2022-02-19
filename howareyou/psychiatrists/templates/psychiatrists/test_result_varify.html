@@ -48,7 +48,7 @@
 
 
 
-            <form action=""  method="POST" >
+            <form action="{% url 'psychiatrists:test_result_save' testresult.id %}"  method="POST" >
                 {% csrf_token %}
 
                 <div style="margin-top: 5ex;">

@@ -9,7 +9,7 @@
 
     {% for psychiatrist in psychiatrists %}
     <label class="ckbox-container">{{ psychiatrist.name }}
-        <input type="checkbox" name="type1_1">
+        <input type="checkbox" name="{{psychiatrist.username}}">
         <span class="ckbox-checkmark"></span>
     </label>
     {% endfor %}
