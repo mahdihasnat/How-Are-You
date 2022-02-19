@@ -6,12 +6,12 @@
 <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
 
 
-<form>
+{% comment %} <form> {% endcomment %}
     
     <div style="margin-top: 2ex; margin-left: 2ex;">
 
         {% for dieases in dieaseses %}
-        {{dieases}}
+        <div style="display: inline-block;">
         {% endfor %}
 
         <label class="ckbox-container">PTSD
@@ -37,4 +37,4 @@
     <div>
         <span><input type="submit" value="Send" class="send-btn"></span>
     </div>
-</form>
+{% comment %} </form> {% endcomment %}

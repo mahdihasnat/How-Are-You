@@ -195,11 +195,16 @@
 
                 <br>
                 <br>
+
+                {% comment %} <form> {% endcomment %}
+
+               
                 
                 {% include "psychiatrists/addDisorder.html" with testresult=testresult dieaseses=dieaseses %}
 
                 {% include "psychiatrists/suggestPsy.html" with testresult=testresult %}
-
+                
+            {% comment %} </form> {% endcomment %}
                 <div>
                     <div style="width: 7%;" class="report-btn">
                         <span style="display: inline-block;">Back</span>
