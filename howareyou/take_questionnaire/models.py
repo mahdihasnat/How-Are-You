@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy
@@ -115,11 +116,12 @@ class TestQuestion(models.Model):
 class TestResult(models.Model):
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL, null=True, default=None)
+    verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL, null=True, default=None,related_name='verified_testresult')
     questions = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
     comment = models.TextField(default='')
     dieaseses = models.ManyToManyField(Dieases)
+    consultations = models.ManyToManyField(Psychiatrist)
 
     def sum_score(self):
         score = 0

@@ -23,4 +23,11 @@ def test_result_varify(request,test_result_id):
 	testresult = context['testresult'] = TestResult.objects.get(id=test_result_id)
 	context['answers'] = [Answer.objects.get(testresult=testresult, question=question) for question in testresult.questions.all()]
 	context['dieaseses'] = Dieases.objects.all()
+	context['psychiatrists'] = Psychiatrist.objects.all()
 	return render(request, 'psychiatrists/test_result_varify.html',context)
+
+def test_result_save(request,test_result_id):
+	if request.method == 'POST':
+		testresult = TestResult.objects.get(id=test_result_id)
+	else:
+		return redirect('psychiatrists:test_result_poll')

@@ -7,8 +7,16 @@
 <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
 
 
+    {% for psychiatrist in psychiatrists %}
+    <label class="ckbox-container">{{ psychiatrist.name }}
+        <input type="checkbox" name="type1_1">
+        <span class="ckbox-checkmark"></span>
+    </label>
+    {% endfor %}
+
+
 {% comment %} <form> {% endcomment %}
-    <div style="margin-top: 5ex;">
+    {% comment %} <div style="margin-top: 5ex;">
         <span> Adolescent </span>
         <hr style="border: 1px solid grey; margin-top: 1ex; width: 50%;">
     </div>
@@ -45,7 +53,7 @@
 
     <div>
         <span><input type="submit" value="Send" class="send-btn"></span>
-    </div>
+    </div> {% endcomment %}
 {% comment %} </form> {% endcomment %}
 
 
