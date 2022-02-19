@@ -9,6 +9,7 @@ def render_test(request):
     context = {}
     test = Test.objects.get(name='General')
     context['test'] = test
+    context['my'] = Patient.objects.get(username=request.session['username'])
     return render(request, 'take_questionnaire/test-questions.html',context)
 
 def get_score(question,option):

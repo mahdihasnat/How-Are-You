@@ -11,5 +11,6 @@ def psychiatrist_home(request):
 
 def test_result_poll(request):
 	assert('username' in request.session)
-	
-	return render(request , 'psychiatrists/test_result_poll.html')
+	context={}
+	context['my'] = Psychiatrist.objects.get(username=request.session['username'])
+	return render(request , 'psychiatrists/test_result_poll.html',context)
