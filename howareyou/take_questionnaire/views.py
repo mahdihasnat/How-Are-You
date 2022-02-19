@@ -1,16 +1,17 @@
 # Create your views here.
-from doctest import testfile
-from django.shortcuts import render,redirect,HttpResponseRedirect
-from take_questionnaire.models import Option, Question,Test,TestResult,Answer,Rule
+from django.shortcuts import render, redirect, HttpResponseRedirect
+
 from patients.models import Patient
+from take_questionnaire.models import Test, TestResult, Answer, Rule
+
 
 def render_test(request):
-    
     context = {}
-    test = Test.objects.get(name='General')
+    ''' should be changed to capture the right test'''
+    test = Test.objects.get(id=1)
     context['test'] = test
     context['my'] = Patient.objects.get(username=request.session['username'])
-    return render(request, 'take_questionnaire/test-questions.html',context)
+    return render(request, 'take_questionnaire/test-questions.html', context)
 
 def get_score(question,option):
     rule = Rule.objects.get(question_id=question,option_id=option)

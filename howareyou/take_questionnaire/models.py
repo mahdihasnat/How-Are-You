@@ -84,6 +84,9 @@ class Test(models.Model):
     # id ignored
     # should it be ReviewBoardMember
     added_by = models.ForeignKey(Psychiatrist, on_delete=models.DO_NOTHING)
+    details_gimmic = models.CharField(max_length=TEXT_FIELD, default=UNSPECIFIED)
+    instruction = models.CharField(max_length=TEXT_FIELD, default=UNSPECIFIED)
+    details_duration = models.CharField(max_length=TEXT_FIELD, default=UNSPECIFIED)
     # disease_id = models.ForeignKey(Disease)
     name = models.CharField("Name of the test", max_length=FIELD_LENGTH, null=False, blank=False)
     created_at = models.DateTimeField(default=timezone.now)
