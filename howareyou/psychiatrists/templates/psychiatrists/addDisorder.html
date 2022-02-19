@@ -6,43 +6,9 @@
 <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
 
 
-<<<<<<< HEAD
-    <!-- <link rel="stylesheet" href="../../static/psychiatrists/styles.css">
-    <link rel="stylesheet" href="../../static/psychiatrists/zaber.css"> -->
-    <title>How Are You ?</title>
-</head>
-<body>
-    <div class="container">
-        <section class="header">
-            {% include "logo.html" %}
-            <nav>
-                <ul class="nav-links">
-                    <li>Home</li>
-                    <li>Trends and Statistics</li>
-                    <li>About Us</li>
-                </ul>
-                <span class="nav-right">
-                    <span><i class="fa fa-search" style="margin-right: 10px;"></i>
-                        <span class="avatar" onclick="document.getElementById('logout-modal-id').style.display='block'" style="cursor: pointer;">{{my.name}}</span>
-                    </span>
-                    <span class="notifi-box">
-                        Notifications
-                        <i class="fa fa-envelope" style="margin-left: 5px;"></i>
-                    </span>
-                </span>
-            </nav>
-        </section>
-        <div class="body-sec">
-            <div>
-                <span style="display: inline-block;">Suggest Disorder(s) For Stella Warren</span>
-                <span style="display: inline-block; margin-left: 40%;"><i class="fa fa-search"></i> </span>
-            </div>
-            <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
-=======
 {% comment %} <form> {% endcomment %}
     
     <div style="margin-top: 2ex; margin-left: 2ex;">
->>>>>>> 301b7a3ff4fb7563eb9d73bd74593dab99c15024
 
         {% for dieases in dieaseses %}
         <div style="display: inline-block;">
@@ -68,28 +34,7 @@
     </div>
 
 
-<<<<<<< HEAD
-        </div>
-
-        <div id="logout-modal-id" class="modal">
-            <form class="modal-content animate" action="" method="post">
-
-                {% csrf_token %}
-                <div class="imgcontainer">
-                    <span onclick="document.getElementById('logout-modal-id').style.display='none'" class="close" title="Close Modal">&times;</span>
-                </div>
-      
-                <div class="login-container">
-      
-                    <input type="submit" class="login-btn" value="Log Out" style="background: none; border: none; background-color: #ddd; margin-top: 15px; padding: 11px; border-radius: 10px; width: 100%;">
-                </div>
-    
-            </form>
-        </div>
-
-=======
     <div>
         <span><input type="submit" value="Send" class="send-btn"></span>
->>>>>>> 301b7a3ff4fb7563eb9d73bd74593dab99c15024
     </div>
 {% comment %} </form> {% endcomment %}
