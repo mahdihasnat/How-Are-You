@@ -2,9 +2,8 @@ import random
 
 from patients.models import Patient
 from psychiatrists.models import Psychiatrist
-from take_questionnaire.models import Test, Question, Option, Rule, TestQuestion
+from take_questionnaire.models import Test, Question, Option, Rule, TestQuestion, Dieases
 
-Patient.objects.all().delete()
 Psychiatrist.objects.all().delete()
 Test.objects.all().delete()
 
@@ -12,10 +11,11 @@ Option.objects.all().delete()
 Question.objects.all().delete()
 Rule.objects.all().delete()
 # .objects.all().delete()
+Patient.objects.all().delete()
 
-
-PSYC_COUNT = 2
-psycs = ["Dr. Habibur Rahman", "Dr. Nargis Khanam"]
+PSYC_COUNT = 5
+psycs = ["Dr. Habibur Rahman", "Dr. Nargis Khanam", "Dr. Hakim Sheikh", "Dr. Jony Ul Islam",
+         "Dr. Hasanul Banna"]
 PAT_COUNT = 3
 pats = ["nayem", "tanvir", "noman"]
 
@@ -70,6 +70,7 @@ def adult_test(moderator):
                     'have been bothered by a list of symptoms during the past 7 days.',
 
         details_duration='In the past SEVEN (7) DAYS....',
+        has_score=True,
 
     )
 
@@ -161,6 +162,7 @@ def general_test(moderator):
                     ' each problem during the past TWO (2) WEEKS.',
         details_duration='During the past TWO (2) WEEKS, how much (or how often) have you been'
                          'bothered by the following problems?',
+        has_score=False,
     )
 
     test.save()
@@ -223,3 +225,18 @@ def general_test(moderator):
 
 general_test(moderator)
 adult_test(moderator)
+
+diseases = ['PTSD', 'Depression', 'Orthorexia', 'OCD']
+desc = ['Post Traumatic Stress Disorder', 'Depression', 'Orthorexia is an unhealthy focus on eating in a healthy way.',
+        'Obsessive compulsive disorder']
+DISEASE_COUNT = 4
+assert DISEASE_COUNT == len(diseases)
+assert len(desc) == DISEASE_COUNT
+while DISEASE_COUNT > 0:
+    DISEASE_COUNT -= 1
+    dis = Dieases(
+        reviewer=moderator,
+        name=diseases[DISEASE_COUNT],
+        description=desc[DISEASE_COUNT],
+    )
+    dis.save()

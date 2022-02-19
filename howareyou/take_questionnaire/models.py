@@ -90,10 +90,11 @@ class Rule(models.Model):
 class Test(models.Model):
     # id ignored
     # should it be ReviewBoardMember
-    added_by = models.ForeignKey(Psychiatrist, on_delete=models.DO_NOTHING)
+    added_by = models.ForeignKey(Psychiatrist, on_delete=models.CASCADE)
     details_gimmic = models.CharField(max_length=TEXT_FIELD, default=UNSPECIFIED)
     instruction = models.CharField(max_length=TEXT_FIELD, default=UNSPECIFIED)
     details_duration = models.CharField(max_length=TEXT_FIELD, default=UNSPECIFIED)
+    has_score = models.BooleanField(default=False)
     # disease_id = models.ForeignKey(Disease)
     name = models.CharField("Name of the test", max_length=FIELD_LENGTH, null=False, blank=False)
     created_at = models.DateTimeField(default=timezone.now)
@@ -118,6 +119,7 @@ class TestResult(models.Model):
     verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL, null=True, default=None)
     questions = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
+    verification_time = models.DateTimeField(default=timezone.datetime.max)
     comment = models.TextField(default='')
     dieaseses = models.ManyToManyField(Dieases)
 
@@ -127,6 +129,8 @@ class TestResult(models.Model):
         for question in self.questions.all():
             answer = Answer.objects.get(testresult=self, question=question)
             score += answer.score
+        if not self.test.has_score:
+            return 'Not available'
         if score < 17:
             return 'None to slight'
         elif score < 23:
