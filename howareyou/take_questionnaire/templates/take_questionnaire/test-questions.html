@@ -45,6 +45,9 @@
             <form action="{% url 'take_questionnaire:submit' test.id %}" style="position: relative;". method="POST">
                 {% csrf_token %}
                 <ul class="test-ovrs">
+                    <i>{{ test.details_duration }}</i>
+                    <br>
+                    <br>
                 {% for q in test.questions.all %}  
                     <li>
                         <span class="que-name">{{q.question_text}}</span><br>

@@ -1,5 +1,7 @@
 import random
 
+from django.utils import timezone, dateparse
+
 from patients.models import Patient
 from psychiatrists.models import Psychiatrist
 from take_questionnaire.models import Test, Question, Option, Rule, TestQuestion, Dieases
@@ -14,7 +16,7 @@ Rule.objects.all().delete()
 Patient.objects.all().delete()
 
 PSYC_COUNT = 5
-psycs = ["Dr. Habibur Rahman", "Dr. Nargis Khanam", "Dr. Hakim Sheikh", "Dr. Jony Ul Islam",
+psycs = ["Dr. Habibur Rahman", "Prof. Dr. Jhunu Shamsun Nahar", "Dr. Mekhala Sarkar", "Prof. Dr. M. A. Mohit Kamal",
          "Dr. Hasanul Banna"]
 PAT_COUNT = 3
 pats = ["nayem", "tanvir", "noman"]
@@ -33,7 +35,8 @@ while PSYC_COUNT > 0:
         name=psycs[PSYC_COUNT - 1],
         password='.',
         email='psy' + str(PSYC_COUNT) + '@abc.com',
-        mobile_number='123'
+        mobile_number='123',
+        date_of_birth = timezone.now() - timezone.timedelta(days= 365 *random.randint(40, 60))
     )
     psy.save()
     moderator = psy
@@ -48,7 +51,9 @@ while PAT_COUNT > 0:
         mobile_number='123',
         height=120 + min(45, PAT_COUNT * random.randint(0, 10)),
         weight=45 + min(50, PAT_COUNT * random.randint(0, 10)),
-        info='Patient no ' + str(PAT_COUNT)
+        info='Patient no ' + str(PAT_COUNT),
+        gender='M',
+        date_of_birth = timezone.now() - timezone.timedelta(days= 365 *random.randint(18, 30))
     )
     pat.save()
     PAT_COUNT = PAT_COUNT - 1
@@ -60,7 +65,7 @@ def adult_test(moderator):
         added_by=moderator,
         is_approved='USE',
 
-        name='LEVEL 2—Depression—Adult (PROMIS Emotional Distress—Depression—Short Form)',
+        name='LEVEL 2—Depression—Adult',
         details_gimmic='Are you depressed for any recent happenings aroung you? ',
 
         instruction='On the DSM-5 Level 1 cross-cutting questionnaire that you just completed, you indicated that during the past 2'
@@ -154,8 +159,7 @@ def general_test(moderator):
         is_approved='USE',
         details_gimmic='Take a quick tour to the DSM Questionnaire to discover your current mental health condition.',
 
-        name='DSM-5 Self-Rated Level 1 Cross-Cutting Symptom Measure—Adult' \
-             'Take some moment to go through our Depression tests.',
+        name='DSM-5 Level 1 Cross-Cutting Symptom Measure',
         instruction='The questions below ask about things that might have bothered you.' \
                     'For each question, circle the number that bestdescribes how much (or how often) you have been '
                     'bothered by' \
