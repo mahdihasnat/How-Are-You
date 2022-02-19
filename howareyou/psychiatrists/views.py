@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .models import Psychiatrist
 from take_questionnaire.models import Answer, TestResult,Dieases
@@ -23,4 +23,21 @@ def test_result_varify(request,test_result_id):
 	testresult = context['testresult'] = TestResult.objects.get(id=test_result_id)
 	context['answers'] = [Answer.objects.get(testresult=testresult, question=question) for question in testresult.questions.all()]
 	context['dieaseses'] = Dieases.objects.all()
+	context['psychiatrists'] = Psychiatrist.objects.all()
 	return render(request, 'psychiatrists/test_result_varify.html',context)
+
+def test_result_save(request,test_result_id):
+	if request.method == 'POST':
+		testresult = TestResult.objects.get(id=test_result_id)
+		for psychiatrist in Psychiatrist.objects.all():
+			if psychiatrist.username in request.POST:
+				testresult.consultations.add(psychiatrist)
+		testresult.verifier = Psychiatrist.objects.get(username=request.session['username'])
+
+		for dieases in Dieases.objects.all():
+			if dieases.id in request.POST:
+				testresult.dieases.add(dieases)
+		testresult.save()
+		return redirect('psychiatrists:test_result_poll')
+	else:
+		return redirect('psychiatrists:test_result_poll')

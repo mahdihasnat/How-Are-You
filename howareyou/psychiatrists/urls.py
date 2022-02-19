@@ -5,4 +5,5 @@ urlpatterns = [
 	path('psychiatrist_home', views.psychiatrist_home, name='psychiatrist_home'),
 	path('test_result_poll', views.test_result_poll, name='test_result_poll'),
 	path('test_result/<int:test_result_id>', views.test_result_varify, name='test_result_varify'),
+	path('test_result_save/<int:test_result_id>', views.test_result_save, name='test_result_save'),
 ]

@@ -11,10 +11,15 @@
     <div style="margin-top: 2ex; margin-left: 2ex;">
 
         {% for dieases in dieaseses %}
-        <div style="display: inline-block;">
+            
+        <label class="ckbox-container">{{ dieases.name }}
+            <input type="checkbox" name="{{dieases.id}}">
+            <span class="ckbox-checkmark"></span>
+        </label>
+
         {% endfor %}
 
-        <label class="ckbox-container">PTSD
+        {% comment %} <label class="ckbox-container">PTSD
             <input type="checkbox" name="type1_1">
             <span class="ckbox-checkmark"></span>
         </label>
@@ -30,11 +35,12 @@
         <label class="ckbox-container">OCD
             <input type="checkbox" name="type2_2">
             <span class="ckbox-checkmark"></span>
-        </label>
+        </label> {% endcomment %}
+
     </div>
 
 
-    <div>
+    {% comment %} <div>
         <span><input type="submit" value="Send" class="send-btn"></span>
-    </div>
+    </div> {% endcomment %}
 {% comment %} </form> {% endcomment %}

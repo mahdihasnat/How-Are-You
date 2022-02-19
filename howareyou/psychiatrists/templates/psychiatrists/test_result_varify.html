@@ -48,7 +48,9 @@
 
 
 
-            <form>
+            <form action="{% url 'psychiatrists:test_result_save' testresult.id %}"  method="POST" >
+                {% csrf_token %}
+
                 <div style="margin-top: 5ex;">
                     <span> Test Questions </span>
                     <hr style="border: 1px solid grey; margin-top: 1ex; width: 50%;">
@@ -202,22 +204,20 @@
                
                 
                 {% include "psychiatrists/addDisorder.html" with testresult=testresult dieaseses=dieaseses %}
+                
+                <br>
+                <br>
 
-                {% include "psychiatrists/suggestPsy.html" with testresult=testresult %}
+                {% include "psychiatrists/suggestPsy.html" with testresult=testresult psychiatrists=psychiatrists %}
                 
             {% comment %} </form> {% endcomment %}
                 <div>
                     <div style="width: 7%;" class="report-btn">
-                        <span style="display: inline-block;">Back</span>
+                        <span style="display: inline-block; cursor: pointer;" onclick="location.href='{% url 'psychiatrists:test_result_poll' %}'">Back</span>
                     </div>
-
-                    <div style="margin-left: 35%; width: 18%;" class="report-btn">
-                        <span style="display: inline-block;">Suggest Psychiatrist</span>
-                    </div>
-
-                    <div style="margin-left: 2%; width: 12%; " class="report-btn">
-                        <span style="display: inline-block;">Add Disorder</span>
-                    </div>
+                        
+                        <input type="submit" value="Save" class="report-btn" style="margin-left: 70%;"> 
+                        
                 </div>
 
             </form>
@@ -225,7 +225,7 @@
         </div>
 
         <div id="logout-modal-id" class="modal">
-            <form class="modal-content animate" action="" method="post">
+            <form class="modal-content animate" action="{% url 'persons:logout' %}" method="post">
 
                 {% csrf_token %}
                 <div class="imgcontainer">
@@ -233,7 +233,7 @@
                 </div>
       
                 <div class="login-container">
-      
+                    
                     <input type="submit" class="login-btn" value="Log Out" style="background: none; border: none; background-color: #ddd; margin-top: 15px; padding: 11px; border-radius: 10px; width: 100%;">
                 </div>
     

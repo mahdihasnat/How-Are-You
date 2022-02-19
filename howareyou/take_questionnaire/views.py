@@ -33,8 +33,10 @@ def submit(request,test_id):
             answer = Answer.objects.create(testresult=test_result,question=question,response=response)
             answer.score = get_score(question,response)
             answer.save()
-        print("Inside response-recorded")
-        return render(request, 'take_questionnaire/response-recorded.html')
+        # print("Inside response-recorded")
+        context = {}
+        context ['my'] = Patient.objects.get(username=request.session['username'])
+        return render(request, 'take_questionnaire/response-recorded.html',context)
     else:
         return redirect('take_questionnaire:render_test')
     

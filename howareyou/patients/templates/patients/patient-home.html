@@ -33,7 +33,7 @@
                 </span>
             </nav>
             <ul class="notifi-modal">
-                <li onclick="window.location='./verified-reports.html'">VERIFIED REPORTS</li><hr>
+                <li onclick="window.location='{% url 'patients:verified_reports' %}'">VERIFIED REPORTS</li><hr>
                 <li>COUNSELING APPROVALS</li><hr>
                 <li>SUGGESTED MEDICATIONS</li><hr>
             </ul>
@@ -78,7 +78,7 @@
         </section>
 
         <div id="logout-modal-id" class="modal">
-            <form class="modal-content animate" action="" method="post">
+            <form class="modal-content animate" action="{% url 'persons:logout' %}" method="post">
 
                 {% csrf_token %}
                 <div class="imgcontainer">

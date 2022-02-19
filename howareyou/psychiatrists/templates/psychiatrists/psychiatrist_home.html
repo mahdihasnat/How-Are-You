@@ -53,7 +53,7 @@
         </section>
 
         <div id="logout-modal-id" class="modal">
-            <form class="modal-content animate" action="" method="post">
+            <form class="modal-content animate" action="{% url 'persons:logout' %}" method="post">
 
                 {% csrf_token %}
                 <div class="imgcontainer">
