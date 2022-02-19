@@ -1,96 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/6.0.0/css/font-awesome.min.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/zaber.css">
-
-    <!-- <link rel="stylesheet" href="../../static/psychiatrists/styles.css">
-    <link rel="stylesheet" href="../../static/psychiatrists/zaber.css"> -->
-    <title>How Are You ?</title>
-</head>
-<body>
-    <div class="container">
-        <section class="header">
-            {% include "logo.html" %}
-            <nav>
-                <ul class="nav-links">
-                    <li>Trends and Statistics</li>
-                    <li>About Us</li>
-                </ul>
-                <span class="nav-right">
-                    <span><i class="fa fa-search" style="margin-right: 10px;"></i>
-                        <span class="avatar">{{my.name}}</span>
-                    </span>
-                    <span class="notifi-box">
-                        Notifications
-                        <i class="fa fa-envelope" style="margin-left: 5px;"></i>
-                    </span>
-                </span>
-            </nav>
-        </section>
-        <div class="body-sec">
-            <div>
-                <span style="display: inline-block;">Suggest Disorder(s) For Stella Warren</span>
-                <span style="display: inline-block; margin-left: 40%;"><i class="fa fa-search"></i> </span>
-            </div>
-            <hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
+<div>
+    <span style="display: inline-block;">Suggest Disorder(s) For {{ testresult.patient.name }}</span>
+    {% comment %} <span style="display: inline-block; margin-left: 40%;"><i class="fa fa-search"></i> </span> {% endcomment %}
+</div>
+<hr style="border: 1px solid grey; margin-top: 1ex; width: 75%;">
 
 
-
-            <form>
-                
+<form>
     
-                <div style="margin-top: 2ex; margin-left: 2ex;">
-                    <label class="ckbox-container">PTSD
-                        <input type="checkbox" name="type1_1">
-                        <span class="ckbox-checkmark"></span>
-                    </label>
-                    <label class="ckbox-container" name="type1_2">Depression
-                        <input type="checkbox">
-                        <span class="ckbox-checkmark"></span>
-                    </label>
-   
-                    <label class="ckbox-container">Orthorexia
-                        <input type="checkbox" name="type2_1">
-                        <span class="ckbox-checkmark"></span>
-                    </label>
-                    <label class="ckbox-container">OCD
-                        <input type="checkbox" name="type2_2">
-                        <span class="ckbox-checkmark"></span>
-                    </label>
-                </div>
-    
-    
-                <div>
-                    <span><input type="submit" value="Send" class="send-btn"></span>
-                </div>
-            </form>
+    <div style="margin-top: 2ex; margin-left: 2ex;">
 
-        </div>
+        {% for dieases in dieaseses %}
+        {{dieases}}
+        {% endfor %}
+
+        <label class="ckbox-container">PTSD
+            <input type="checkbox" name="type1_1">
+            <span class="ckbox-checkmark"></span>
+        </label>
+        <label class="ckbox-container" name="type1_2">Depression
+            <input type="checkbox">
+            <span class="ckbox-checkmark"></span>
+        </label>
+
+        <label class="ckbox-container">Orthorexia
+            <input type="checkbox" name="type2_1">
+            <span class="ckbox-checkmark"></span>
+        </label>
+        <label class="ckbox-container">OCD
+            <input type="checkbox" name="type2_2">
+            <span class="ckbox-checkmark"></span>
+        </label>
     </div>
-    <section class="footer">
-        <span><i class="fa fa-copyright"></i> Copyright <span class="year"></span> | How are you?</span>
-        <div>
-            <ul class="social-media">
-                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-            </ul>
-        </div>
-    </section>
-    <script>
-        document.querySelector(".year").innerHTML = new Date().getFullYear();
-    </script>
-</body>
-</html>
+
+
+    <div>
+        <span><input type="submit" value="Send" class="send-btn"></span>
+    </div>
+</form>

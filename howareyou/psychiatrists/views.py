@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import Psychiatrist
-from take_questionnaire.models import Answer, TestResult
+from take_questionnaire.models import Answer, TestResult,Dieases
 # Create your views here.
 
 def psychiatrist_home(request):
@@ -22,5 +22,5 @@ def test_result_varify(request,test_result_id):
 	context['my'] = Psychiatrist.objects.get(username=request.session['username'])
 	testresult = context['testresult'] = TestResult.objects.get(id=test_result_id)
 	context['answers'] = [Answer.objects.get(testresult=testresult, question=question) for question in testresult.questions.all()]
-	
+	context['dieaseses'] = Dieases.objects.all()
 	return render(request, 'psychiatrists/test_result_varify.html',context)

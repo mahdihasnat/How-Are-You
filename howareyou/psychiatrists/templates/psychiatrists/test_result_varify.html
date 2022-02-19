@@ -183,7 +183,7 @@
                         <span class="ckbox-checkmark-show"></span>
                     </label>
                 </div> {% endcomment %}
-
+                
 
                 <div style="margin-top: 7ex;">
                     <span> System Score </span>
@@ -192,6 +192,13 @@
                 <div style="margin-top: 2ex; margin-left:2ex">
                     <span style="font-size: 120%;"> PTSD Positive </span>
                 </div>
+
+                <br>
+                <br>
+                
+                {% include "psychiatrists/addDisorder.html" with testresult=testresult dieaseses=dieaseses %}
+
+                {% include "psychiatrists/suggestPsy.html" with testresult=testresult %}
 
                 <div>
                     <div style="width: 7%;" class="report-btn">

@@ -64,6 +64,13 @@ class Question(models.Model):
 # class Anser
 
 
+class Dieases(models.Model):
+    reviewer = models.ForeignKey(Psychiatrist, on_delete=models.CASCADE)
+    name = models.CharField("Name of the disease", max_length=FIELD_LENGTH, null=False, blank=False)
+    description = models.TextField("Description of the disease", max_length=TEXT_FIELD, null=False, blank=False)
+    creation_time = models.DateTimeField(default=timezone.now)
+
+
 class Option(models.Model):
     # not adding id
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE, parent_link=True)
@@ -109,6 +116,7 @@ class TestResult(models.Model):
     questions = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
     comment = models.TextField(default='')
+    dieaseses = models.ManyToManyField(Dieases)
 
     def sum_score(self):
         score = 0
@@ -131,3 +139,5 @@ class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     response = models.IntegerField(null=False, blank=False)
     score = models.IntegerField(default=0)
+
+
