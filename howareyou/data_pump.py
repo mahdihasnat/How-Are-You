@@ -57,13 +57,16 @@ test = Test(
 
 test.save()
 
-QUESTION_COUNT = 5
+QUESTION_COUNT = 8
 questions = [
     'I felt worthless.',
     'I felt that I had nothing to look forward to.',
     'I felt helpless.',
     'I felt sad.',
     'I felt like a failure.',
+    'I felt depressed.',
+    'I felt unhappy.',
+    'I felt hopeless.',
 ]
 
 OPTION_COUNT = 5
@@ -72,15 +75,22 @@ options = [
     ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
     ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
     ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
-    ['Never', 'Rarely', 'Sometimes', 'Often', 'Always']
+    ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
+    ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
+    ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
+    ['Never', 'Rarely', 'Sometimes', 'Often', 'Always'],
+
 ]
 
 weights = [
-    [0, 1, 2, 3, 4],
-    [0, 1, 2, 3, 4],
-    [0, 1, 2, 3, 4],
-    [0, 1, 2, 3, 4],
-    [0, 1, 2, 3, 4],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
 ]
 
 for i in range(QUESTION_COUNT):
