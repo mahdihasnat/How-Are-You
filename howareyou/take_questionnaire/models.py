@@ -64,9 +64,16 @@ class Question(models.Model):
 # class Anser
 
 
+class Dieases(models.Model):
+    reviewer = models.ForeignKey(Psychiatrist, on_delete=models.CASCADE)
+    name = models.CharField("Name of the disease", max_length=FIELD_LENGTH, null=False, blank=False)
+    description = models.TextField("Description of the disease", max_length=TEXT_FIELD, null=False, blank=False)
+    creation_time = models.DateTimeField(default=timezone.now)
+
+
 class Option(models.Model):
     # not adding id
-    question_id = models.ForeignKey(Question, on_delete=models.CASCADE,parent_link=True)
+    question_id = models.ForeignKey(Question, on_delete=models.CASCADE, parent_link=True)
     text = models.CharField(max_length=FIELD_LENGTH, null=False, blank=False, default=UNSPECIFIED)
 
 
@@ -84,6 +91,9 @@ class Test(models.Model):
     # id ignored
     # should it be ReviewBoardMember
     added_by = models.ForeignKey(Psychiatrist, on_delete=models.DO_NOTHING)
+    details_gimmic = models.CharField(max_length=TEXT_FIELD, default=UNSPECIFIED)
+    instruction = models.CharField(max_length=TEXT_FIELD, default=UNSPECIFIED)
+    details_duration = models.CharField(max_length=TEXT_FIELD, default=UNSPECIFIED)
     # disease_id = models.ForeignKey(Disease)
     name = models.CharField("Name of the test", max_length=FIELD_LENGTH, null=False, blank=False)
     created_at = models.DateTimeField(default=timezone.now)
@@ -109,6 +119,7 @@ class TestResult(models.Model):
     questions = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
     comment = models.TextField(default='')
+    dieaseses = models.ManyToManyField(Dieases)
 
     def sum_score(self):
         score = 0
@@ -116,11 +127,20 @@ class TestResult(models.Model):
         for question in self.questions.all():
             answer = Answer.objects.get(testresult=self, question=question)
             score += answer.score
-        return score
+        if score < 17:
+            return 'None to slight'
+        elif score < 23:
+            return 'Mild'
+        elif score < 33:
+            return 'Moderate'
+        else:
+            return 'Severe'
 
 
 class Answer(models.Model):
     testresult = models.ForeignKey(TestResult, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    response = models.CharField(max_length=FIELD_LENGTH, null=False, blank=False, default=UNSPECIFIED)
+    response = models.IntegerField(null=False, blank=False)
     score = models.IntegerField(default=0)
+
+
