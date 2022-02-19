@@ -1,7 +1,7 @@
 # Create your views here.
 from doctest import testfile
 from django.shortcuts import render,redirect,HttpResponseRedirect
-from take_questionnaire.models import Question,Test,TestResult,Answer,Rule
+from take_questionnaire.models import Option, Question,Test,TestResult,Answer,Rule
 from patients.models import Patient
 
 def render_test(request):
@@ -28,7 +28,7 @@ def submit(request,test_id):
             except:
                 return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         for question in test.questions.all():
-            response = request.POST[str(question.id)]
+            response = int(request.POST[str(question.id)])
             answer = Answer.objects.create(testresult=test_result,question=question,response=response)
             answer.score = get_score(question,response)
             answer.save()

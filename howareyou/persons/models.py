@@ -37,3 +37,10 @@ class Person(models.Model):
     )
 	# mobile_number
 	mobile_number = models.CharField(null=True,max_length=50,blank=True)
+	
+	def age(self):
+		#  returns age
+		now = timezone.now()
+		delta =now - self.date_of_birth
+		
+		return str(delta.days // 365) + " year " + str(delta.days % 365 // 30) + "months"

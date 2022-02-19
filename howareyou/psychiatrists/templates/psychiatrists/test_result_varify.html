@@ -54,11 +54,30 @@
                 </div>
 
 
-                {% for question in testresult.questions.all %}
-                    {{ question }}
-                {% endfor %}
-                {{answers}}
 
+                {% for answer in answers %} 
+                <div style="margin-top: 2ex; margin-left:2ex">
+                    <span style="font-size: 120%;"> {{ forloop.counter }}.  {{ answer.question.question_text }} </span>
+                </div>
+                
+
+                <div style="margin-top: 1ex; margin-left: 5ex;">
+                    {% for option in answer.question.option_set.all %}
+
+                    <label class="ckbox-container-show">{{ option.text }}
+                        <input type="checkbox" disabled
+                            
+                            {% if option.id == answer.response %} 
+                                checked
+                            {% endif %}
+                        >
+                        <span class="ckbox-checkmark-show"></span>
+                    </label>
+                    {% endfor%}
+                </div>
+
+                {% endfor %}
+{% comment %} 
                 <div style="margin-top: 2ex; margin-left:2ex">
                     <span style="font-size: 120%;">1. Have you ever felt worthless?</span>
                 </div>
@@ -114,7 +133,7 @@
                     </label>
                 </div>
     
-    
+     {% endcomment %}
     
                 
                 <div style="margin-top: 5ex;">
@@ -127,7 +146,7 @@
                 </div>
     
                 <div style="margin-top: 1ex; margin-left: 5ex; padding: 1.5ex; background-color: gray; width: 6%; border-radius: 10px 10px 10px 10px;">
-                    <span>19-24</span>
+                    <span> {{ testresult.patient.age }}</span>
                 </div>
 
 
@@ -149,7 +168,7 @@
                         <span class="ckbox-checkmark-show"></span>
                     </label>
                 </div>
-
+{% comment %} 
                 <div style="margin-top: 2ex; margin-left:0ex">
                     <span style="font-size: 120%;"> Have you ever been diagnosed with a mental health condition by a professional? </span>
                 </div>
@@ -163,7 +182,7 @@
                         <input type="checkbox" disabled checked>
                         <span class="ckbox-checkmark-show"></span>
                     </label>
-                </div>
+                </div> {% endcomment %}
 
 
                 <div style="margin-top: 7ex;">
