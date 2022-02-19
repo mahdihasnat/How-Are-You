@@ -66,7 +66,7 @@ class Question(models.Model):
 
 class Option(models.Model):
     # not adding id
-    question_id = models.ForeignKey(Question, on_delete=models.CASCADE,parent_link=True)
+    question_id = models.ForeignKey(Question, on_delete=models.CASCADE, parent_link=True)
     text = models.CharField(max_length=FIELD_LENGTH, null=False, blank=False, default=UNSPECIFIED)
 
 
@@ -116,7 +116,14 @@ class TestResult(models.Model):
         for question in self.questions.all():
             answer = Answer.objects.get(testresult=self, question=question)
             score += answer.score
-        return score
+        if score < 17:
+            return 'None to slight'
+        elif score < 23:
+            return 'Mild'
+        elif score < 33:
+            return 'Moderate'
+        else:
+            return 'Severe'
 
 
 class Answer(models.Model):
