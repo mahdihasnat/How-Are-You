@@ -116,10 +116,10 @@ class TestQuestion(models.Model):
 class TestResult(models.Model):
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL, null=True, default=None,related_name='verified_testresult')
+    verifier = models.ForeignKey(Psychiatrist, on_delete=models.SET_NULL, null=True, blank=True,default=None,related_name='verified_testresult')
     questions = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
-    comment = models.TextField(default='')
+    comment = models.TextField(default='',null=True,blank=True)
     dieaseses = models.ManyToManyField(Dieases)
     consultations = models.ManyToManyField(Psychiatrist)
 
