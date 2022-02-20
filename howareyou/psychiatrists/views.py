@@ -35,9 +35,10 @@ def test_result_save(request,test_result_id):
 				testresult.consultations.add(psychiatrist)
 		testresult.verifier = Psychiatrist.objects.get(username=request.session['username'])
 		testresult.verification_time=timezone.now()
+		print(request.POST)
 		for dieases in Dieases.objects.all():
-			if dieases.id in request.POST:
-				testresult.dieases.add(dieases)
+			if str(dieases.id) in request.POST:
+				testresult.dieaseses.add(dieases)
 		testresult.save()
 		return redirect('psychiatrists:test_result_poll')
 	else:

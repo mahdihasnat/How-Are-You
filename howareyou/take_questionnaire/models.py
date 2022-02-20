@@ -119,7 +119,7 @@ class TestResult(models.Model):
     questions = models.ManyToManyField(Question, through='Answer')
     submission_time = models.DateTimeField(default=timezone.now)
     verification_time = models.DateTimeField(null=True, blank=True)
-    comment = models.TextField(default='')
+    comment = models.TextField(default='',null=True, blank=True)
     dieaseses = models.ManyToManyField(Dieases)
     consultations = models.ManyToManyField(Psychiatrist)
 
